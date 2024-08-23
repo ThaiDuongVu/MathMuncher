@@ -1,0 +1,8 @@
+operators: power
+expressions: cube, cube root
+
+blocks:
+- teleporter
+- moving block (turn based)
+
+evaluations

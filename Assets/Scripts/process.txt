@@ -1,0 +1,4 @@
+capture level thumbnail:
+1. set capture take number
+2. record
+3. set thumbnail in level selector

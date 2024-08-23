@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Number
+  - Portal
+  - Star
+  - Operator
+  - Expression
+  - Teleporter
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - PostProcessing
+  - Water
+  - UI
+  - Map
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2020196843
+    locked: 0
+  - name: Environment
+    uniqueID: 921434403
+    locked: 0
+  - name: Characters
+    uniqueID: 2241230279
+    locked: 0
+  - name: UI
+    uniqueID: 1901692495
+    locked: 0
