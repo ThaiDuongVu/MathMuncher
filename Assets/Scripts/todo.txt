@@ -2,7 +2,7 @@ operators: power
 expressions: cube, cube root
 
 blocks:
-- teleporter
+- tunnel (change direction)
 - moving block (turn based)
 
 evaluations
