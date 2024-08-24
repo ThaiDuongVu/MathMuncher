@@ -107,7 +107,7 @@ public class Number : Block
         // Play effects
         CameraShaker.Instance.Shake(CameraShakeMode.Light);
         Instantiate(splashPrefab, expression.transform.position, Quaternion.identity);
-        FindFirstObjectByType<Player>().Talk("Mathed!");
+        FindFirstObjectByType<Player>().Talk("Math!");
 
         return true;
     }
@@ -127,6 +127,9 @@ public class Number : Block
             OperatorType.Subtract => Value - number.Value,
             OperatorType.Multiply => Value * number.Value,
             OperatorType.Divide => Value / number.Value,
+            OperatorType.GreaterThan => Value > number.Value ? 1 : 0,
+            OperatorType.LessThan => Value < number.Value ? 1 : 0,
+            OperatorType.Equal => Value == number.Value ? 1 : 0,
             _ => Value,
         };
         OperatorType = OperatorType.None;
@@ -138,7 +141,7 @@ public class Number : Block
         // Play effects
         CameraShaker.Instance.Shake(CameraShakeMode.Light);
         Instantiate(splashPrefab, number.transform.position, Quaternion.identity);
-        FindFirstObjectByType<Player>().Talk("Mathed!");
+        FindFirstObjectByType<Player>().Talk("Math!");
 
         return true;
     }

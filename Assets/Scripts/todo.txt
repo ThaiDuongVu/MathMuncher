@@ -1,5 +1,9 @@
-operators: power
+operators: append, power, modulo
 expressions: cube, cube root
+decimals (?)
+graph (?)
+time (?)
+infinity (?)
 
 blocks:
 - tunnel (change direction)

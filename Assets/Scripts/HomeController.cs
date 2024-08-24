@@ -18,11 +18,11 @@ public class HomeController : MonoBehaviour
     }
 
     #endregion
-    
+
     [SerializeField] private SimpleMenu mainMenu;
     [SerializeField] private TMP_Text initText;
 
-    public bool IsInit;
+    public bool IsInit { get; set; }
     private InputManager _inputManager;
 
     #region Unity Events

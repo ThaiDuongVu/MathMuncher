@@ -22,8 +22,11 @@ public class Operator : Block
         {
             OperatorType.Add => "+",
             OperatorType.Subtract => "-",
-            OperatorType.Multiply => "*",
+            OperatorType.Multiply => "x",
             OperatorType.Divide => "/",
+            OperatorType.GreaterThan => ">",
+            OperatorType.LessThan => "<",
+            OperatorType.Equal => "==",
             _ => "",
         };
     }
