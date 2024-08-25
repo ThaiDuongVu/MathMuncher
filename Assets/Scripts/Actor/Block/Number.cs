@@ -6,6 +6,7 @@ public class Number : Block
     [SerializeField] private AudioSource latchAudio;
     [SerializeField] private AudioSource clickAudio;
     [SerializeField] private AudioSource enterAudio;
+    [SerializeField] private AudioSource explosionAudio;
 
     [Header("Number References")]
     public int initValue;
@@ -158,6 +159,26 @@ public class Number : Block
 
     #region Interaction Methods
 
+    public bool Hit(Enemy enemy)
+    {
+        if (!enemy) return false;
+
+        // If enemy condition is met
+        if (enemy.Condition.Evaluate(Value))
+        {
+            enemy.SelfDestruct();
+            return false;
+        }
+
+        // If enemy condition is not met
+        CameraShaker.Instance.Shake(CameraShakeMode.Light);
+        Instantiate(splashPrefab, transform.position, Quaternion.identity);
+        explosionAudio.Play();
+        Destroy(gameObject);
+
+        return true;
+    }
+
     private bool Enter(Portal portal)
     {
         if (!portal) return false;
@@ -194,6 +215,7 @@ public class Number : Block
             Merge(hitTransform.GetComponent<Operator>());
             Merge(hitTransform.GetComponent<Expression>());
             Operate(hitTransform.GetComponent<Number>());
+            if (Hit(hitTransform.GetComponent<Enemy>())) return true;
             if (Enter(hitTransform.GetComponent<Portal>())) return true;
         }
 

@@ -9,10 +9,10 @@ public class Condition : MonoBehaviour
     {
         return operatorType switch
         {
-            OperatorType.GreaterThan => value > otherValue,
-            OperatorType.LessThan => value < otherValue,
-            OperatorType.Equal => value == otherValue,
-            OperatorType.NotEqual => value != otherValue,
+            OperatorType.GreaterThan => otherValue > value,
+            OperatorType.LessThan => otherValue < value,
+            OperatorType.Equal => otherValue == value,
+            OperatorType.NotEqual => otherValue != value,
             _ => false,
         };
     }

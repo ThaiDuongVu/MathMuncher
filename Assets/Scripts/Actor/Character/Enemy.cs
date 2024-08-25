@@ -3,9 +3,13 @@ using TMPro;
 
 public class Enemy : Character
 {
+    [SerializeField] private AudioSource explosionAudio;
+
     [Header("Enemy References")]
     [SerializeField] private RectTransform overlay;
     [SerializeField] private TMP_Text text;
+
+    [SerializeField] private ParticleSystem splashPrefab;
 
     public Condition Condition { get; private set; }
     private Camera _mainCamera;
@@ -44,5 +48,13 @@ public class Enemy : Character
     public virtual void SetText(string message)
     {
         text.SetText(message);
+    }
+
+    public void SelfDestruct()
+    {
+        CameraShaker.Instance.Shake(CameraShakeMode.Light);
+        Instantiate(splashPrefab, transform.position, Quaternion.identity);
+        explosionAudio.Play();
+        Destroy(gameObject);
     }
 }
