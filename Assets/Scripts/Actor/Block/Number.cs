@@ -113,7 +113,7 @@ public class Number : Block
         CameraShaker.Instance.Shake(CameraShakeMode.Light);
         Instantiate(splashPrefab, expression.transform.position, Quaternion.identity);
         clickAudio.Play();
-        FindFirstObjectByType<Player>().Talk("Math!");
+        FindFirstObjectByType<Player>().TalkMath();
 
         return true;
     }
@@ -149,7 +149,7 @@ public class Number : Block
         CameraShaker.Instance.Shake(CameraShakeMode.Light);
         Instantiate(splashPrefab, number.transform.position, Quaternion.identity);
         clickAudio.Play();
-        FindFirstObjectByType<Player>().Talk("Math!");
+        FindFirstObjectByType<Player>().TalkMath();
 
         return true;
     }
@@ -174,6 +174,7 @@ public class Number : Block
         CameraShaker.Instance.Shake(CameraShakeMode.Light);
         GameController.Instance.PlaySlowMotionEffect();
         enterAudio.Play();
+        FindFirstObjectByType<Player>().TalkPortal();
 
         return true;
     }

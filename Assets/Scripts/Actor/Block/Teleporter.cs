@@ -36,14 +36,14 @@ public class Teleporter : Block
         Instantiate(teleportSplashPrefab, transform.position, Quaternion.identity);
     }
 
-    public void OnActivated(Player player)
+    public void OnActivated(Character character)
     {
         if (!connectedTeleporter) return;
 
         // Set new player position
         var connectedPosition = connectedTeleporter.Position;
-        player.transform.position = connectedPosition;
-        player.TargetPosition = connectedPosition;
+        character.transform.position = connectedPosition;
+        character.TargetPosition = connectedPosition;
 
         Animator.SetTrigger(ActivateAnimationTrigger);
         Instantiate(teleportSplashPrefab, transform.position, Quaternion.identity);

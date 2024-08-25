@@ -10,6 +10,7 @@ TagManager:
   - Operator
   - Expression
   - Teleporter
+  - Enemy
   layers:
   - Default
   - TransparentFX

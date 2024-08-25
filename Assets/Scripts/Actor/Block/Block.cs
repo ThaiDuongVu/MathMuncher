@@ -10,6 +10,7 @@ public class Block : Actor
     [Header("Audio References")]
     [SerializeField] private AudioSource pushAudio;
     [SerializeField] private AudioSource collectAudio;
+    [SerializeField] private AudioSource teleportAudio;
 
     private Camera _mainCamera;
     protected Animator Animator;
@@ -74,6 +75,7 @@ public class Block : Actor
 
         // Play effects
         CameraShaker.Instance.Shake(CameraShakeMode.Light);
+        teleportAudio.Play();
 
         return true;
     }
@@ -93,7 +95,6 @@ public class Block : Actor
         }
 
         pushAudio.Play();
-
         return base.Move(direction);
     }
 }
