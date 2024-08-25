@@ -8,6 +8,10 @@ public class SimpleMenu : MonoBehaviour
 {
     [SerializeField] private bool disableOnStart;
 
+    [Header("Audio References")]
+    [SerializeField] private AudioSource clickAudio;
+    [SerializeField] private AudioSource selectAudio;
+
     private SimpleButton[] _buttons;
 
     private EventSystem _eventSystem;
@@ -46,9 +50,7 @@ public class SimpleMenu : MonoBehaviour
     private void Update()
     {
         if (_eventSystem.currentSelectedGameObject != _currentSelectedButton)
-        {
             _currentSelectedButton = _eventSystem.currentSelectedGameObject;
-        }
     }
 
     #endregion
@@ -58,6 +60,7 @@ public class SimpleMenu : MonoBehaviour
     private void EnterOnPerformed(InputAction.CallbackContext context)
     {
         _eventSystem.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
+        clickAudio.Play();
     }
 
     #endregion
@@ -78,6 +81,7 @@ public class SimpleMenu : MonoBehaviour
     public void SetSelected(GameObject obj)
     {
         _eventSystem.SetSelectedGameObject(obj);
+        selectAudio.Play();
     }
 
     public void SetButtonMainText(int buttonIndex, string text)

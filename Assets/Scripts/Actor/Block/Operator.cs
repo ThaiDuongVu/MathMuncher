@@ -26,7 +26,8 @@ public class Operator : Block
             OperatorType.Divide => "/",
             OperatorType.GreaterThan => ">",
             OperatorType.LessThan => "<",
-            OperatorType.Equal => "==",
+            OperatorType.Equal => "=",
+            OperatorType.NotEqual => "!=",
             _ => "",
         };
     }

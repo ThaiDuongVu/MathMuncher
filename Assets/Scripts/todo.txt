@@ -4,8 +4,11 @@ decimals (?)
 graph (?)
 time (?)
 infinity (?)
+fibonacci
 
 blocks:
+- enemies
+- door
 - tunnel (change direction)
 - moving block (turn based)
 

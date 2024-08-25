@@ -7,5 +7,6 @@ public enum OperatorType
     Divide,
     GreaterThan,
     LessThan,
-    Equal
+    Equal,
+    NotEqual
 }

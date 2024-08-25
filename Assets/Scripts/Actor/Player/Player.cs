@@ -13,6 +13,9 @@ public class Player : Actor
     [Header("UI References")]
     [SerializeField] private SpeechBubble speechBubble;
 
+    [Header("Audio References")]
+    [SerializeField] private AudioSource footstepAudio;
+
     private InputManager _inputManager;
 
     #region Unity Events
@@ -93,7 +96,6 @@ public class Player : Actor
         if (isStatic) return false;
         if (IsMoving) return false;
 
-        SetAnimatorDirection(direction);
         // Raycast to perform operations
         var hit = Physics2D.Raycast(transform.position, direction, 1f);
         if (hit)
@@ -101,6 +103,9 @@ public class Player : Actor
             var hitTransform = hit.transform;
             Enter(hitTransform.GetComponent<Teleporter>());
         }
+
+        SetAnimatorDirection(direction);
+        footstepAudio.Play();
 
         return base.Move(direction);
     }

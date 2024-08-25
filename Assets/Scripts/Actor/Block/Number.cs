@@ -3,6 +3,10 @@ using TMPro;
 
 public class Number : Block
 {
+    [SerializeField] private AudioSource latchAudio;
+    [SerializeField] private AudioSource clickAudio;
+    [SerializeField] private AudioSource enterAudio;
+
     [Header("Number References")]
     public int initValue;
 
@@ -75,6 +79,7 @@ public class Number : Block
         // Play effects
         CameraShaker.Instance.Shake(CameraShakeMode.Light);
         Instantiate(splashPrefab, @operator.transform.position, Quaternion.identity);
+        latchAudio.Play();
 
         return true;
     }
@@ -107,6 +112,7 @@ public class Number : Block
         // Play effects
         CameraShaker.Instance.Shake(CameraShakeMode.Light);
         Instantiate(splashPrefab, expression.transform.position, Quaternion.identity);
+        clickAudio.Play();
         FindFirstObjectByType<Player>().Talk("Math!");
 
         return true;
@@ -130,6 +136,7 @@ public class Number : Block
             OperatorType.GreaterThan => Value > number.Value ? 1 : 0,
             OperatorType.LessThan => Value < number.Value ? 1 : 0,
             OperatorType.Equal => Value == number.Value ? 1 : 0,
+            OperatorType.NotEqual => Value != number.Value ? 1 : 0,
             _ => Value,
         };
         OperatorType = OperatorType.None;
@@ -141,6 +148,7 @@ public class Number : Block
         // Play effects
         CameraShaker.Instance.Shake(CameraShakeMode.Light);
         Instantiate(splashPrefab, number.transform.position, Quaternion.identity);
+        clickAudio.Play();
         FindFirstObjectByType<Player>().Talk("Math!");
 
         return true;
@@ -165,6 +173,7 @@ public class Number : Block
         // Play effects
         CameraShaker.Instance.Shake(CameraShakeMode.Light);
         GameController.Instance.PlaySlowMotionEffect();
+        enterAudio.Play();
 
         return true;
     }

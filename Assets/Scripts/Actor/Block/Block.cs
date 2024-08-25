@@ -7,6 +7,10 @@ public class Block : Actor
     [SerializeField] private RectTransform overlay;
     [SerializeField] private TMP_Text text;
 
+    [Header("Audio References")]
+    [SerializeField] private AudioSource pushAudio;
+    [SerializeField] private AudioSource collectAudio;
+
     private Camera _mainCamera;
     protected Animator Animator;
     private static readonly int ShrinkAnimationTrigger = Animator.StringToHash("shrink");
@@ -55,6 +59,7 @@ public class Block : Actor
         // Play effects
         CameraShaker.Instance.Shake(CameraShakeMode.Light);
         GameController.Instance.PlaySlowMotionEffect();
+        collectAudio.Play();
 
         return true;
     }
@@ -86,6 +91,8 @@ public class Block : Actor
             Collect(hitTransform.GetComponent<Star>());
             if (Enter(hitTransform.GetComponent<Teleporter>())) return Move(direction);
         }
+
+        pushAudio.Play();
 
         return base.Move(direction);
     }
