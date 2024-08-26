@@ -56,7 +56,7 @@ public class GameController : MonoBehaviour
     {
         if (FindObjectsByType<Player>(FindObjectsSortMode.None).Length <= 0)
             StartCoroutine(GameOver());
-        if (FindObjectsByType<Number>(FindObjectsSortMode.None).Length <= 0)
+        else if (FindObjectsByType<Number>(FindObjectsSortMode.None).Length <= 0)
             CompleteLevel(3 - FindObjectsByType<Star>(FindObjectsSortMode.None).Length);
     }
 

@@ -10,6 +10,7 @@ public class Enemy : Character, ITurnable
     [SerializeField] private TMP_Text text;
 
     [SerializeField] private ParticleSystem splashPrefab;
+    [SerializeField] private LineRenderer connectLine;
     [SerializeField] private Vector2[] positions;
 
     private int _positionIndex;
@@ -32,6 +33,11 @@ public class Enemy : Character, ITurnable
         base.Start();
 
         SetText(Condition.ToString());
+
+        // Set connect line
+        connectLine.positionCount = positions.Length;
+        for (int i = 0; i < positions.Length; i++)
+            connectLine.SetPosition(i, positions[i]);
     }
 
     protected override void Update()
@@ -57,7 +63,7 @@ public class Enemy : Character, ITurnable
         // Update index & direction
         _positionIndex = _positionIndex >= positions.Length - 1 ? 0 : _positionIndex + 1;
         var direction = (positions[_positionIndex] - (Vector2)transform.position).normalized;
-        ForceMove(direction);
+        ForceMove(positions[_positionIndex]);
     }
 
     #endregion
@@ -72,7 +78,10 @@ public class Enemy : Character, ITurnable
         CameraShaker.Instance.Shake(CameraShakeMode.Light);
         Instantiate(splashPrefab, other.transform.position, Quaternion.identity);
         GameController.Instance.PlaySlowMotionEffect();
+
+        explosionAudio.transform.SetParent(null);
         explosionAudio.Play();
+        Destroy(explosionAudio, 1f);
 
         Destroy(other);
     }

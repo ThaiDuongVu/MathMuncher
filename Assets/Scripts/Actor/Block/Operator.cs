@@ -35,7 +35,6 @@ public class Operator : Block
     public override bool Move(Vector2 direction)
     {
         if (isStatic) return false;
-        if (IsMoving) return false;
 
         // Raycast to perform operations
         var hit = Physics2D.Raycast(transform.position, direction, 1f);

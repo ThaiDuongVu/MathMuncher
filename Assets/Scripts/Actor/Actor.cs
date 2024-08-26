@@ -60,7 +60,6 @@ public class Actor : MonoBehaviour
     public virtual bool Move(Vector2 direction)
     {
         if (isStatic) return false;
-        if (IsMoving) return false;
 
         // Raycast to check if movable
         var hit = Physics2D.Raycast(transform.position, direction, 1f);
@@ -78,14 +77,12 @@ public class Actor : MonoBehaviour
         return true;
     }
 
-    // Similar to move but force the move no matter what
-    public virtual bool ForceMove(Vector2 direction)
+    // Force move to a particular position
+    public virtual bool ForceMove(Vector2 position)
     {
-        if (IsMoving) return false;
-
-        TargetPosition += direction;
+        TargetPosition = position;
         IsMoving = true;
-        SetFlipDirection(direction);
+        SetFlipDirection((position - (Vector2)transform.position).normalized);
 
         return true;
     }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Character : Actor
 {
@@ -50,7 +51,6 @@ public class Character : Actor
     public override bool Move(Vector2 direction)
     {
         if (isStatic) return false;
-        if (IsMoving) return false;
 
         // Raycast to perform operations
         var hit = Physics2D.Raycast(transform.position, direction, 1f);
@@ -66,11 +66,11 @@ public class Character : Actor
         return base.Move(direction);
     }
 
-    public override bool ForceMove(Vector2 direction)
+    public override bool ForceMove(Vector2 position)
     {
-        if (!base.ForceMove(direction)) return false;
+        if (!base.ForceMove(position)) return false;
 
-        SetAnimatorDirection(direction);
+        SetAnimatorDirection((position - (Vector2)transform.position).normalized);
         footstepAudio.Play();
 
         return true;

@@ -6,7 +6,6 @@ public class Number : Block
     [SerializeField] private AudioSource latchAudio;
     [SerializeField] private AudioSource clickAudio;
     [SerializeField] private AudioSource enterAudio;
-    [SerializeField] private AudioSource explosionAudio;
 
     [Header("Number References")]
     public int initValue;
@@ -185,7 +184,6 @@ public class Number : Block
     public override bool Move(Vector2 direction)
     {
         if (isStatic) return false;
-        if (IsMoving) return false;
 
         // Raycast to perform operations
         var hit = Physics2D.Raycast(transform.position, direction, 1f);
