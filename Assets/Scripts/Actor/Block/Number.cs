@@ -122,7 +122,7 @@ public class Number : Block
     private bool Operate(Number number)
     {
         if (!number) return false;
-        if (!IsOperatorSet && !number.IsOperatorSet) return false;
+        if (!IsOperatorSet) return false;
 
         // Handle undefined value
         if (number.Value == 0 && OperatorType == OperatorType.Divide) return false;
@@ -158,26 +158,6 @@ public class Number : Block
     #endregion
 
     #region Interaction Methods
-
-    public bool Hit(Enemy enemy)
-    {
-        if (!enemy) return false;
-
-        // If enemy condition is met
-        if (enemy.Condition.Evaluate(Value))
-        {
-            enemy.SelfDestruct();
-            return false;
-        }
-
-        // If enemy condition is not met
-        CameraShaker.Instance.Shake(CameraShakeMode.Light);
-        Instantiate(splashPrefab, transform.position, Quaternion.identity);
-        explosionAudio.Play();
-        Destroy(gameObject);
-
-        return true;
-    }
 
     private bool Enter(Portal portal)
     {
@@ -215,7 +195,6 @@ public class Number : Block
             Merge(hitTransform.GetComponent<Operator>());
             Merge(hitTransform.GetComponent<Expression>());
             Operate(hitTransform.GetComponent<Number>());
-            if (Hit(hitTransform.GetComponent<Enemy>())) return true;
             if (Enter(hitTransform.GetComponent<Portal>())) return true;
         }
 

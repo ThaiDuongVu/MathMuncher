@@ -810,7 +810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 3955556799829476328}
-  isStatic: 1
+  isStatic: 0
   overlay: {fileID: 7602380097184208303}
   text: {fileID: 5644714165123180395}
   pushAudio: {fileID: 4332258084219817668}

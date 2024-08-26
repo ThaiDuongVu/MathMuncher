@@ -57,12 +57,22 @@ public class Character : Actor
         if (hit)
         {
             var hitTransform = hit.transform;
-            Enter(hitTransform.GetComponent<Teleporter>());
+            if (Enter(hitTransform.GetComponent<Teleporter>())) return Move(direction);
         }
 
         SetAnimatorDirection(direction);
         footstepAudio.Play();
 
         return base.Move(direction);
+    }
+
+    public override bool ForceMove(Vector2 direction)
+    {
+        if (!base.ForceMove(direction)) return false;
+
+        SetAnimatorDirection(direction);
+        footstepAudio.Play();
+
+        return true;
     }
 }

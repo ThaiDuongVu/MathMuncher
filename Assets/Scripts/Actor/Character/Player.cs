@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -68,4 +69,14 @@ public class Player : Character
     }
 
     #endregion
+
+    public override bool Move(Vector2 direction)
+    {
+        if (!base.Move(direction)) return false;
+
+        // Update turn
+        foreach (var turnable in FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<ITurnable>())
+            turnable.NextTurn();
+        return true;
+    }
 }

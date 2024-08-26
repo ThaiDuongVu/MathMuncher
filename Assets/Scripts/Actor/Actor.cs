@@ -14,7 +14,7 @@ public class Actor : MonoBehaviour
 
     protected virtual void Awake()
     {
-        
+
     }
 
     protected virtual void Start()
@@ -42,11 +42,20 @@ public class Actor : MonoBehaviour
         sprite.flipX = value;
     }
 
+    protected void SetFlipDirection(Vector2 direction)
+    {
+        // Set sprite horizontal flip accordingly
+        if (direction.x < 0f) SetFlip(true);
+        else if (direction.x > 0f) SetFlip(false);
+    }
+
     protected void Reactivate()
     {
         gameObject.SetActive(false);
         gameObject.SetActive(true);
     }
+
+    #region Move Methods
 
     public virtual bool Move(Vector2 direction)
     {
@@ -64,10 +73,22 @@ public class Actor : MonoBehaviour
 
         TargetPosition += direction;
         IsMoving = true;
+        SetFlipDirection(direction);
 
-        // Set sprite horizontal flip accordingly
-        if (direction.x < 0f) SetFlip(true);
-        else if (direction.x > 0f) SetFlip(false);
         return true;
     }
+
+    // Similar to move but force the move no matter what
+    public virtual bool ForceMove(Vector2 direction)
+    {
+        if (IsMoving) return false;
+
+        TargetPosition += direction;
+        IsMoving = true;
+        SetFlipDirection(direction);
+
+        return true;
+    }
+
+    #endregion
 }

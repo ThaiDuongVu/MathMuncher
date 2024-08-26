@@ -19,6 +19,7 @@ public class Condition : MonoBehaviour
 
     public override string ToString()
     {
+        if (operatorType == OperatorType.None) return "";
         return $"{Operator.GetSymbol(operatorType)} {value}";
     }
 }

@@ -5,11 +5,11 @@ graph (?)
 time (?)
 infinity (?)
 fibonacci
+sequence
+compound blocks (vector)
 
 blocks:
-- enemies
 - door
 - tunnel (change direction)
-- moving block (turn based)
 
 evaluations

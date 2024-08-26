@@ -54,6 +54,8 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
+        if (FindObjectsByType<Player>(FindObjectsSortMode.None).Length <= 0)
+            StartCoroutine(GameOver());
         if (FindObjectsByType<Number>(FindObjectsSortMode.None).Length <= 0)
             CompleteLevel(3 - FindObjectsByType<Star>(FindObjectsSortMode.None).Length);
     }
@@ -103,7 +105,7 @@ public class GameController : MonoBehaviour
     {
         if (State != GameState.InProgress) yield break;
         SetGameState(GameState.Over);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
 
         // Play effects
         gameOverMenu.SetActive(true);
