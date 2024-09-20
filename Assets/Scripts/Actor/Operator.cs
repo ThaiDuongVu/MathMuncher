@@ -51,7 +51,7 @@ public class Operator : Actor
             OperatorType.Subtraction => "-",
             OperatorType.Multiplication => "*",
             OperatorType.Division => "/",
-            OperatorType.Square => "**2",
+            OperatorType.Square => "^2",
             OperatorType.SquareRoot => "SQRT",
             OperatorType.Factorial => "!",
             OperatorType.Greater => ">",
