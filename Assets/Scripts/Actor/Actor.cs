@@ -2,13 +2,14 @@ using UnityEngine;
 
 public class Actor : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer sprite;
     public bool isStatic;
+    [SerializeField] protected SpriteRenderer sprite;
+    [SerializeField] private SpeechBubble speechBubble;
 
     public Vector2 TargetPosition { get; set; }
+    public bool IsMoving { get; set; }
     private const float MoveSpeed = 20f;
     private const float Epsilon = 0.1f;
-    public bool IsMoving { get; set; }
 
     #region Unity Events
 
@@ -37,6 +38,8 @@ public class Actor : MonoBehaviour
 
     #endregion
 
+    #region Setters
+
     public void SetFlip(bool value)
     {
         sprite.flipX = value;
@@ -49,41 +52,74 @@ public class Actor : MonoBehaviour
         else if (direction.x > 0f) SetFlip(false);
     }
 
-    protected void Reactivate()
+    #endregion
+
+    public void Reactivate()
     {
         gameObject.SetActive(false);
         gameObject.SetActive(true);
+    }
+
+    protected virtual void Talk(string message)
+    {
+        speechBubble.gameObject.SetActive(false);
+        speechBubble.SetText(message);
+        speechBubble.gameObject.SetActive(true);
+    }
+
+    protected bool Enter(Teleporter teleporter, Vector2 direction)
+    {
+        if (!teleporter) return false;
+
+        var originalPosition = transform.position;
+        teleporter.OnTeleported(this);
+        // If teleported successfully
+        if (Move(direction))
+        {
+            Reactivate();
+            teleporter.PlayEffects();
+            return true;
+        }
+
+        // If not teleport back to original position
+        Teleport(originalPosition);
+        return false;
+    }
+
+    public virtual void Teleport(Vector2 position)
+    {
+        transform.position = position;
+        TargetPosition = position;
+    }
+
+    public virtual void Explode()
+    {
+        Destroy(gameObject);
     }
 
     #region Move Methods
 
     public virtual bool Move(Vector2 direction)
     {
+        if (IsMoving) return false;
         if (isStatic) return false;
 
         // Raycast to check if movable
         var hit = Physics2D.Raycast(transform.position, direction, 1f);
         if (hit)
         {
-            var hitActor = hit.transform.GetComponent<Actor>();
-            if (!hitActor) return false;
-            if (!hitActor.Move(direction)) return false;
+            var actor = hit.transform.GetComponent<Actor>();
+            if (!actor) return false;
+
+            // Teleport
+            if (Enter(hit.transform.GetComponent<Teleporter>(), direction)) return true;
+
+            if (!actor.Move(direction)) return false;
         }
 
         TargetPosition += direction;
         IsMoving = true;
         SetFlipDirection(direction);
-
-        return true;
-    }
-
-    // Force move to a particular position
-    public virtual bool ForceMove(Vector2 position)
-    {
-        TargetPosition = position;
-        IsMoving = true;
-        SetFlipDirection((position - (Vector2)transform.position).normalized);
-
         return true;
     }
 

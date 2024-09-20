@@ -10,10 +10,8 @@ public class StarsDisplay : MonoBehaviour
     {
         gameObject.SetActive(false);
 
-        for (var i = 0; i < stars; i++)
-            icons[i].gameObject.SetActive(true);
-        for (var i = stars; i < MaxStars; i++)
-            icons[i].gameObject.SetActive(false);
+        for (var i = 0; i < stars; i++) icons[i].gameObject.SetActive(true);
+        for (var i = stars; i < MaxStars; i++) icons[i].gameObject.SetActive(false);
 
         gameObject.SetActive(true);
     }

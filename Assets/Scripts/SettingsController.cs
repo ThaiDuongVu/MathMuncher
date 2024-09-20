@@ -39,7 +39,7 @@ public class SettingsController : MonoBehaviour
         Apply();
 
         _isBuffering = true;
-        Invoke(nameof(DisableBuffer), BufferDuration);
+        StartCoroutine(DisableBuffer());
     }
 
     public void ToggleResolution()
@@ -56,7 +56,7 @@ public class SettingsController : MonoBehaviour
         Apply();
 
         _isBuffering = true;
-        Invoke(nameof(DisableBuffer), BufferDuration);
+        StartCoroutine(DisableBuffer());
     }
 
     public void ToggleCameraShake()
@@ -72,7 +72,7 @@ public class SettingsController : MonoBehaviour
         Apply();
 
         _isBuffering = true;
-        Invoke(nameof(DisableBuffer), BufferDuration);
+        StartCoroutine(DisableBuffer());
     }
 
     public void ToggleGamepadVibration()
@@ -88,7 +88,7 @@ public class SettingsController : MonoBehaviour
         Apply();
 
         _isBuffering = true;
-        Invoke(nameof(DisableBuffer), BufferDuration);
+        StartCoroutine(DisableBuffer());
     }
 
     public void ToggleAudio()
@@ -104,13 +104,14 @@ public class SettingsController : MonoBehaviour
         Apply();
 
         _isBuffering = true;
-        Invoke(nameof(DisableBuffer), BufferDuration);
+        StartCoroutine(DisableBuffer());
     }
 
     #endregion
 
-    private void DisableBuffer()
+    private IEnumerator DisableBuffer()
     {
+        yield return new WaitForSecondsRealtime(BufferDuration);
         _isBuffering = false;
     }
 

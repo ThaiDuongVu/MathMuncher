@@ -16,4 +16,12 @@ public class EffectsController : MonoBehaviour
     }
 
     #endregion
+
+    [SerializeField] private SpeechBubble speechBubblePrefab;
+
+    public void SpawnSpeechBubble(Vector2 position, string message)
+    {
+        var speechBubble = Instantiate(speechBubblePrefab, position, Quaternion.identity);
+        speechBubble.SetText(message);
+    }
 }

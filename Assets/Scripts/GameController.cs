@@ -54,9 +54,8 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        if (FindObjectsByType<Player>(FindObjectsSortMode.None).Length <= 0)
-            StartCoroutine(GameOver());
-        else if (FindObjectsByType<Number>(FindObjectsSortMode.None).Length <= 0)
+        // Check level complete
+        if (Level.Instance.levelIndex != -1 && FindObjectsByType<Block>(FindObjectsSortMode.None).Length == 0)
             CompleteLevel(3 - FindObjectsByType<Star>(FindObjectsSortMode.None).Length);
     }
 
@@ -67,7 +66,7 @@ public class GameController : MonoBehaviour
     private void EscapeOnPerformed(InputAction.CallbackContext context)
     {
         if (State == GameState.InProgress) Pause();
-        else if (State == GameState.Paused) Resume();
+        // else if (State == GameState.Paused) Resume();
     }
 
     private void RestartOnPerformed(InputAction.CallbackContext context)

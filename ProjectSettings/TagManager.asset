@@ -4,13 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Number
-  - Portal
+  - Block
+  - Eater
   - Star
   - Operator
-  - Expression
   - Teleporter
-  - Enemy
+  - Rat
+  - Switch
   layers:
   - Default
   - TransparentFX
@@ -49,14 +49,14 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: Background
-    uniqueID: 2020196843
+    uniqueID: 1072779757
     locked: 0
   - name: Environment
-    uniqueID: 921434403
+    uniqueID: 2708446717
     locked: 0
-  - name: Characters
-    uniqueID: 2241230279
+  - name: Actors
+    uniqueID: 3686775223
     locked: 0
   - name: UI
-    uniqueID: 1901692495
+    uniqueID: 2398565627
     locked: 0

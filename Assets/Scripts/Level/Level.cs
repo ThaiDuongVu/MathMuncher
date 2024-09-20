@@ -20,18 +20,16 @@ public class Level : MonoBehaviour
 
     public int levelIndex;
 
-    [Header("UI References")]
-    [SerializeField] private Canvas hud;
-    [SerializeField] private TMP_Text displayText;
-    [SerializeField] private string mnkText;
-    [SerializeField] private string gamepadText;
+    [Header("Tutorial References")]
+    [SerializeField] private TMP_Text tutorialText;
+    [SerializeField] private string mnkTutorial;
+    [SerializeField] private string gamepadTutorial;
 
     #region Unity Events
 
     private void Update()
     {
-        hud.gameObject.SetActive(GameController.Instance.State == GameState.InProgress);
-        displayText.SetText(InputTypeController.Instance.InputType == InputType.MouseKeyboard ? mnkText : gamepadText);
+        tutorialText.SetText(InputTypeController.Instance.InputType == InputType.MouseKeyboard ? mnkTutorial : gamepadTutorial);
     }
 
     #endregion

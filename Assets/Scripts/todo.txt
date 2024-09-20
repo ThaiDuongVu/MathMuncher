@@ -1,15 +1,8 @@
-operators: append, power, modulo
-expressions: cube, cube root
-decimals (?)
-graph (?)
-time (?)
-infinity (?)
-fibonacci
-sequence
-compound blocks (vector)
+interactable:
+switch
+button
+tunnel
 
-blocks:
-- door
-- tunnel (change direction)
-
-evaluations
+math:
+pi
+mod

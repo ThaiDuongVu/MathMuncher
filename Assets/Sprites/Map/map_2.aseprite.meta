@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5bfc6e576711aec41985a883975065f6
+guid: 8029d3e04e6a6af41942e19d0f8d4465
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: map_2
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -132,7 +132,7 @@ ScriptedImporter:
       y: 4
       width: 16
       height: 16
-    spriteID: 2882a75042ce7b84886d153b373b8d5d
+    spriteID: 8b15dc02838c2f445be974e80a386ea3
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -157,7 +157,7 @@ ScriptedImporter:
         y: 0
         width: 16
         height: 16
-      spriteId: 2882a75042ce7b84886d153b373b8d5d
+      spriteId: 8b15dc02838c2f445be974e80a386ea3
     linkedCells: []
     parentIndex: -1
   platformSettings: []
