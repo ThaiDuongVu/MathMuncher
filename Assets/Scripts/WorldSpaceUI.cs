@@ -16,7 +16,8 @@ public class WorldSpaceUI : MonoBehaviour
 
     private void Update()
     {
-        overlay.gameObject.SetActive(GameController.Instance && GameController.Instance.State == GameState.InProgress);
+        if (GameController.Instance)
+            overlay.gameObject.SetActive(GameController.Instance.State == GameState.InProgress);
 
         for (int i = 1; i < _overlayElements.Length; i++)
         {
