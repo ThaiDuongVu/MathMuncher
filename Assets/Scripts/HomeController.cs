@@ -4,9 +4,24 @@ using UnityEngine.InputSystem;
 
 public class HomeController : MonoBehaviour
 {
+    #region Singleton
+
+    private static HomeController _homeControllerInstance;
+
+    public static HomeController Instance
+    {
+        get
+        {
+            if (_homeControllerInstance == null) _homeControllerInstance = FindFirstObjectByType<HomeController>();
+            return _homeControllerInstance;
+        }
+    }
+
+    #endregion
+
     [SerializeField] private SimpleMenu mainMenu;
     [SerializeField] private TMP_Text initText;
-    private bool _isInit;
+    public bool IsInit { get; private set; }
 
     private InputManager _inputManager;
 
@@ -26,7 +41,7 @@ public class HomeController : MonoBehaviour
     {
         _inputManager.Disable();
     }
-    
+
     private void Start()
     {
         Time.timeScale = 1f;
@@ -38,13 +53,13 @@ public class HomeController : MonoBehaviour
 
     private void AnyOnPerformed(InputAction.CallbackContext context)
     {
-        if (_isInit) return;
+        if (IsInit) return;
 
         mainMenu.SetActive(true);
         initText.gameObject.SetActive(false);
         PostProcessingController.Instance.SetDepthOfField(true);
 
-        _isInit = true;
+        IsInit = true;
     }
 
     #endregion
