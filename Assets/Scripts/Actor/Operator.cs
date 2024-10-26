@@ -3,7 +3,6 @@ using TMPro;
 
 public class Operator : Actor
 {
-
     [Header("Operator References")]
     [SerializeField] private OperatorType type;
     [SerializeField] private int value;
@@ -23,26 +22,26 @@ public class Operator : Actor
 
     #endregion
 
-    public int Operate(int value)
+    public int Operate(int operateValue)
     {
         return type switch
         {
-            OperatorType.None => value,
-            OperatorType.Addition => value + this.value,
-            OperatorType.Subtraction => value - this.value,
-            OperatorType.Multiplication => value * this.value,
-            OperatorType.Division => value / this.value,
-            OperatorType.Square => value * value,
-            OperatorType.SquareRoot => (int)Mathf.Sqrt(value),
-            OperatorType.Factorial => Factorial(value),
-            OperatorType.Greater => value > this.value ? 1 : 0,
-            OperatorType.Less => value < this.value ? 1 : 0,
-            OperatorType.Equal => value == this.value ? 1 : 0,
-            _ => value,
+            OperatorType.None => operateValue,
+            OperatorType.Addition => operateValue + value,
+            OperatorType.Subtraction => operateValue - value,
+            OperatorType.Multiplication => operateValue * value,
+            OperatorType.Division => operateValue / value,
+            OperatorType.Square => operateValue * operateValue,
+            OperatorType.SquareRoot => (int)Mathf.Sqrt(operateValue),
+            OperatorType.Factorial => Factorial(operateValue),
+            OperatorType.Greater => operateValue > value ? 1 : 0,
+            OperatorType.Less => operateValue < value ? 1 : 0,
+            OperatorType.Equal => operateValue == value ? 1 : 0,
+            _ => operateValue,
         };
     }
 
-    public static string OperatorSymbol(OperatorType type)
+    private static string OperatorSymbol(OperatorType type)
     {
         return type switch
         {
@@ -79,22 +78,21 @@ public class Operator : Actor
         base.Explode();
     }
 
-    public override bool Move(Vector2 direction)
+    protected override bool Move(Vector2 direction)
     {
         if (isStatic) return false;
 
         // Raycast
         var hit = Physics2D.Raycast(transform.position, direction, 1f);
-        if (hit)
-        {
-            // Merge
-            var block = hit.transform.GetComponent<Block>();
-            if (block) return block.Merge(this);
+        if (!hit) return base.Move(direction);
+        
+        // Merge
+        var block = hit.transform.GetComponent<Block>();
+        if (block) return block.Merge(this);
 
-            // Interact
-            var interactable = hit.transform.GetComponent<Interactable>();
-            if (interactable && interactable.OnInteracted(this)) return true;
-        }
+        // Interact
+        var interactable = hit.transform.GetComponent<Interactable>();
+        if (interactable && interactable.OnInteracted(this)) return true;
 
         return base.Move(direction);
     }

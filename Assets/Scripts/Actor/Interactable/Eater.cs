@@ -11,6 +11,7 @@ public class Eater : Interactable
     [SerializeField] private ParticleSystem splashPrefab;
 
     private int _value;
+
     public int Value
     {
         get => _value;

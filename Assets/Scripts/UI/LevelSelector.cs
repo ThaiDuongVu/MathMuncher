@@ -13,7 +13,7 @@ public class LevelSelector : MonoBehaviour
     [SerializeField] private StarsDisplay starsDisplay;
 
     private int _currentIndex;
-    public int CurrentIndex
+    private int CurrentIndex
     {
         get => _currentIndex;
         set
@@ -42,24 +42,21 @@ public class LevelSelector : MonoBehaviour
 
     #region Getters
 
-    public bool GetLevelUnlocked(int levelIndex)
+    private bool GetLevelUnlocked(int levelIndex)
     {
         var permaSaveData = SaveLoadController.Instance.LoadPerma();
         return permaSaveData.unlockedLevelIndex >= levelIndex;
     }
 
-    public int GetLevelRating(int levelIndex)
+    private int GetLevelRating(int levelIndex)
     {
         var permaSaveData = SaveLoadController.Instance.LoadPerma();
-        if (permaSaveData.levelRatings.Count > levelIndex - 1)
-            return permaSaveData.levelRatings[levelIndex - 1];
-
-        return 0;
+        return permaSaveData.levelRatings.Count > levelIndex - 1 ? permaSaveData.levelRatings[levelIndex - 1] : 0;
     }
 
     #endregion
 
-    public void Select(int levelIndex)
+    private void Select(int levelIndex)
     {
         levelThumbnail.sprite = _allThumbnails[levelIndex - 1];
         levelText.SetText($"Level {levelIndex:D2}{(GetLevelUnlocked(levelIndex) ? "" : " - Locked")}");

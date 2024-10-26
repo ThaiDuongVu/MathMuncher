@@ -6,8 +6,8 @@ public class Actor : MonoBehaviour
     [SerializeField] protected SpriteRenderer sprite;
     [SerializeField] private SpeechBubble speechBubble;
 
-    public Vector2 TargetPosition { get; set; }
-    public bool IsMoving { get; set; }
+    protected Vector2 TargetPosition { get; set; }
+    protected bool IsMoving { get; set; }
     private const float MoveSpeed = 20f;
     private const float Epsilon = 0.1f;
 
@@ -15,7 +15,6 @@ public class Actor : MonoBehaviour
 
     protected virtual void Awake()
     {
-
     }
 
     protected virtual void Start()
@@ -40,16 +39,23 @@ public class Actor : MonoBehaviour
 
     #region Setters
 
-    public void SetFlip(bool value)
+    private void SetFlip(bool value)
     {
         sprite.flipX = value;
     }
 
     protected void SetFlipDirection(Vector2 direction)
     {
-        // Set sprite horizontal flip accordingly
-        if (direction.x < 0f) SetFlip(true);
-        else if (direction.x > 0f) SetFlip(false);
+        switch (direction.x)
+        {
+            // Set sprite horizontal flip accordingly
+            case < 0f:
+                SetFlip(true);
+                break;
+            case > 0f:
+                SetFlip(false);
+                break;
+        }
     }
 
     #endregion
@@ -67,7 +73,7 @@ public class Actor : MonoBehaviour
         speechBubble.gameObject.SetActive(true);
     }
 
-    protected bool Enter(Teleporter teleporter, Vector2 direction)
+    private bool Enter(Teleporter teleporter, Vector2 direction)
     {
         if (!teleporter) return false;
 
@@ -99,7 +105,7 @@ public class Actor : MonoBehaviour
 
     #region Move Methods
 
-    public virtual bool Move(Vector2 direction)
+    protected virtual bool Move(Vector2 direction)
     {
         if (IsMoving) return false;
         if (isStatic) return false;

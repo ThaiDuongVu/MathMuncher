@@ -8,8 +8,9 @@ public class Rat : Turnable
     [SerializeField] private AnimatorOverrideController sideAnimator;
     private Animator _animator;
 
-    [Header("Position References")]
-    [SerializeField] private Vector2[] positions;
+    [Header("Position References")] [SerializeField]
+    private Vector2[] positions;
+
     [SerializeField] private LineRenderer positionLine;
     private int _positionIndex;
 
@@ -36,7 +37,7 @@ public class Rat : Turnable
 
     #endregion
 
-    public override bool Move(Vector2 direction)
+    protected override bool Move(Vector2 direction)
     {
         return true;
     }

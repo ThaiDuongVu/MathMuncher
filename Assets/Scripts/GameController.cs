@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour
 
     #endregion
 
-    public GameState State { get; set; }
+    public GameState State { get; private set; }
 
     [Header("Menu References")]
     [SerializeField] private SimpleMenu pauseMenu;
@@ -49,7 +49,7 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        SetTimeScale(1f);
+        SetTimeScale();
     }
 
     private void Update()
@@ -78,7 +78,7 @@ public class GameController : MonoBehaviour
 
     #region Pause/Resume Methods
 
-    public void Pause()
+    private void Pause()
     {
         SetTimeScale(0f);
         pauseMenu.SetActive(true);
@@ -89,7 +89,7 @@ public class GameController : MonoBehaviour
 
     public void Resume()
     {
-        SetTimeScale(1f);
+        SetTimeScale();
         pauseMenu.SetActive(false);
 
         SetGameState(GameState.InProgress);
@@ -111,7 +111,7 @@ public class GameController : MonoBehaviour
         PostProcessingController.Instance.SetDepthOfField(true);
     }
 
-    public void CompleteLevel(int stars)
+    private void CompleteLevel(int stars)
     {
         if (State != GameState.InProgress) return;
         SetGameState(GameState.Over);
@@ -127,7 +127,7 @@ public class GameController : MonoBehaviour
 
     #endregion
 
-    public void SetGameState(GameState state)
+    private void SetGameState(GameState state)
     {
         State = state;
     }
@@ -172,7 +172,7 @@ public class GameController : MonoBehaviour
         yield return new WaitForSecondsRealtime(duration);
 
         // Back to normal
-        SetTimeScale(1f);
+        SetTimeScale();
         PostProcessingController.Instance.SetChromaticAberration(false);
         PostProcessingController.Instance.SetVignetteIntensity(PostProcessingController.DefaultVignetteIntensity);
     }

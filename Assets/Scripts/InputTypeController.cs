@@ -19,7 +19,7 @@ public class InputTypeController : MonoBehaviour
 
     #endregion
 
-    public InputType InputType { get; set; } = InputType.MouseKeyboard;
+    public InputType InputType { get; private set; } = InputType.MouseKeyboard;
 
     private InputManager _inputManager;
 
@@ -61,7 +61,7 @@ public class InputTypeController : MonoBehaviour
 
     #endregion
 
-    public void CheckInputType(InputAction.CallbackContext context)
+    private void CheckInputType(InputAction.CallbackContext context)
     {
         InputType = context.control.device == InputSystem.devices[0] || context.control.device == InputSystem.devices[1]
             ? InputType.MouseKeyboard

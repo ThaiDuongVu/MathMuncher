@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Block : Actor
 {
-    [Header("Block References")]
+    [Header("Block References")] 
     [SerializeField] private int initValue;
     [SerializeField] private TMP_Text valueText;
 
@@ -11,10 +11,11 @@ public class Block : Actor
     [SerializeField] private ParticleSystem splashPrefab;
 
     private int _value;
+
     public int Value
     {
         get => _value;
-        set
+        private set
         {
             _value = value;
             valueText.SetText(value.ToString());
@@ -56,9 +57,9 @@ public class Block : Actor
         _animator.SetTrigger(ShrinkAnimationTrigger);
     }
 
-    private bool Merge(Block other)
+    private void Merge(Block other)
     {
-        if (!other) return false;
+        if (!other) return;
 
         Value += other.Value;
         Reactivate();
@@ -67,8 +68,6 @@ public class Block : Actor
         // Play effects
         CameraShaker.Instance.Shake(CameraShakeMode.Light);
         Instantiate(splashPrefab, other.transform.position, Quaternion.identity);
-
-        return true;
     }
 
     public bool Merge(Operator @operator)
@@ -86,7 +85,7 @@ public class Block : Actor
         return true;
     }
 
-    public override bool Move(Vector2 direction)
+    protected override bool Move(Vector2 direction)
     {
         if (isStatic) return false;
 

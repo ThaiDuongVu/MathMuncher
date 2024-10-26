@@ -26,7 +26,7 @@ public class PostProcessingController : MonoBehaviour
     private Vignette _vignette;
 
     public const float DefaultVignetteIntensity = 0.3f;
-    public const float DefaultChromaticAberrationIntensity = 0.2f;
+    private const float DefaultChromaticAberrationIntensity = 0.2f;
 
     #region Unity Event
 

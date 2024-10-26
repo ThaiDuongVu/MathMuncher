@@ -1,5 +1,4 @@
 interactable:
-switch
 button
 tunnel
 

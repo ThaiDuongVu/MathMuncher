@@ -164,9 +164,6 @@ public class SettingsController : MonoBehaviour
                 Screen.SetResolution(3840, 2160, fullscreenValue == 0);
                 resolutionButton.SetMainText("3840 x 2160");
                 break;
-
-            default:
-                break;
         }
 
         // Apply camera shake setting

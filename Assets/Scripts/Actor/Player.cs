@@ -53,14 +53,14 @@ public class Player : Actor
 
         var direction = context.ReadValue<Vector2>();
         if (direction.x != 0f && direction.y != 0f) return;
-        if (Move(direction))
-            // Update turnables
-            foreach (var turnable in _turnables) turnable.UpdateTurn(direction);
+        if (!Move(direction)) return;
+
+        // Update turnables
+        foreach (var turnable in _turnables) turnable.UpdateTurn(direction);
     }
 
     private void MoveOnCanceled(InputAction.CallbackContext context)
     {
-
     }
 
     #endregion
@@ -75,7 +75,7 @@ public class Player : Actor
         base.Explode();
     }
 
-    public override bool Move(Vector2 direction)
+    protected override bool Move(Vector2 direction)
     {
         if (!base.Move(direction)) return false;
 
@@ -84,12 +84,12 @@ public class Player : Actor
         if (direction.x != 0f)
         {
             _animator.runtimeAnimatorController = sideAnimator;
-            arrowsDisplay.SetTrigger(direction.x == 1f ? "right" : "left");
+            arrowsDisplay.SetTrigger(Mathf.Approximately(direction.x, 1f) ? "right" : "left");
         }
         else
         {
             _animator.runtimeAnimatorController = direction.y < 0f ? frontAnimator : backAnimator;
-            arrowsDisplay.SetTrigger(direction.y == 1f ? "up" : "down");
+            arrowsDisplay.SetTrigger(Mathf.Approximately(direction.y, 1f) ? "up" : "down");
         }
 
         return true;

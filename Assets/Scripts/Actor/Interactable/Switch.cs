@@ -6,7 +6,6 @@ public class Switch : Interactable
     [Header("Switch References")]
     [SerializeField] private Sprite onSprite;
     [SerializeField] private Sprite offSprite;
-
     [SerializeField] private UnityEvent onActivated;
     [SerializeField] private UnityEvent onDeactivated;
 
@@ -16,6 +15,7 @@ public class Switch : Interactable
     [SerializeField] private Transform[] connectedObjects;
 
     private bool _isOn;
+
     public bool IsOn
     {
         get => _isOn;
@@ -64,7 +64,7 @@ public class Switch : Interactable
         return false;
     }
 
-    public override bool Move(Vector2 direction)
+    protected override bool Move(Vector2 direction)
     {
         return true;
     }

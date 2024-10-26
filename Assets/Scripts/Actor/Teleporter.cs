@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class Teleporter : Actor
 {
-    [Header("Teleporter References")]
+    [Header("Teleporter References")] 
     [SerializeField] private Teleporter connectedNode;
-    public Vector2 Position => transform.position;
+
+    private Vector2 Position => transform.position;
 
     [Header("Effects References")]
     [SerializeField] private ParticleSystem splashPrefab;

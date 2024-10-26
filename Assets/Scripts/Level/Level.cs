@@ -5,14 +5,14 @@ public class Level : MonoBehaviour
 {
     #region Singleton
 
-    private static Level _LevelInstance;
+    private static Level _levelInstance;
 
     public static Level Instance
     {
         get
         {
-            if (_LevelInstance == null) _LevelInstance = FindFirstObjectByType<Level>();
-            return _LevelInstance;
+            if (_levelInstance == null) _levelInstance = FindFirstObjectByType<Level>();
+            return _levelInstance;
         }
     }
 

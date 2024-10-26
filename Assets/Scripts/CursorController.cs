@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CursorController
+public static class CursorController
 {
     public static void SetCursorEnabled(bool value)
     {

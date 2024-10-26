@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -42,7 +41,7 @@ public class SceneLoader : MonoBehaviour
 
         // Play camera animation
         _cameraAnimator.SetTrigger(OutroTrigger);
-        GameController.SetTimeScale(1f);
+        GameController.SetTimeScale();
 
         // Wait for camera animation to complete
         yield return new WaitForSecondsRealtime(0.5f);
