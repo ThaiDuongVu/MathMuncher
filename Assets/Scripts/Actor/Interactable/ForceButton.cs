@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Switch : Interactable
+public class ForceButton : Interactable
 {
     [Header("Switch References")]
     [SerializeField] private Sprite onSprite;
@@ -11,9 +11,8 @@ public class Switch : Interactable
 
     [Header("Effects References")]
     [SerializeField] private ParticleSystem splashPrefab;
-    [SerializeField] private LineRenderer connectLine;
-    [SerializeField] private Transform[] connectedObjects;
 
+    private readonly Vector2 _boxSize = new(0.5f, 0.5f);
     private bool _isOn;
     public bool IsOn
     {
@@ -29,23 +28,12 @@ public class Switch : Interactable
 
     #region Unity Events
 
-    protected override void Start()
+    protected override void Update()
     {
-        base.Start();
+        base.Update();
 
-        connectLine.positionCount = connectedObjects.Length * 2;
-        var j = 0;
-        for (var i = 0; i < connectLine.positionCount; i++)
-        {
-            if (i % 2 == 0) connectLine.SetPosition(i, transform.position);
-            else
-            {
-                connectLine.SetPosition(i, connectedObjects[j].position);
-                j++;
-            }
-        }
-
-        IsOn = false;
+        var hits = Physics2D.OverlapBoxAll(transform.position, _boxSize, 0f);
+        IsOn = hits.Length > 1;
     }
 
     #endregion
@@ -53,8 +41,6 @@ public class Switch : Interactable
     public override bool OnInteracted(Actor actor)
     {
         if (!base.OnInteracted(actor)) return false;
-
-        IsOn = !IsOn;
 
         // Play effects
         CameraShaker.Instance.Shake(CameraShakeMode.Light);
