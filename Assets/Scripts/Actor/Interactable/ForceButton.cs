@@ -61,8 +61,6 @@ public class ForceButton : Interactable
         else if (IsOn && hits.Length <= 1)
         {
             IsOn = false;
-            CameraShaker.Instance.Shake(CameraShakeMode.Light);
-            Instantiate(splashPrefab, transform.position, Quaternion.identity);
         }
     }
 

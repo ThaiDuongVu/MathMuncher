@@ -84,15 +84,16 @@ public class Operator : Actor
 
         // Raycast
         var hit = Physics2D.Raycast(transform.position, direction, 1f);
-        if (!hit) return base.Move(direction);
-        
-        // Merge
-        var block = hit.transform.GetComponent<Block>();
-        if (block) return block.Merge(this);
+        if (hit)
+        {
+            // Merge
+            var block = hit.transform.GetComponent<Block>();
+            if (block) return block.Merge(this);
 
-        // Interact
-        var interactable = hit.transform.GetComponent<Interactable>();
-        if (interactable && interactable.OnInteracted(this)) return true;
+            // Interact
+            var interactable = hit.transform.GetComponent<Interactable>();
+            if (interactable && interactable.OnInteracted(this)) return true;
+        }
 
         return base.Move(direction);
     }
