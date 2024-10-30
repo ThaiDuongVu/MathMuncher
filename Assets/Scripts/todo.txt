@@ -1,5 +1,4 @@
 interactable:
-button
 tunnel
 
 math:
