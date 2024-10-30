@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Teleporter : Actor
 {
-    [Header("Teleporter References")] 
+    [Header("Teleporter References")]
     [SerializeField] private Teleporter connectedNode;
 
     private Vector2 Position => transform.position;
@@ -11,7 +11,17 @@ public class Teleporter : Actor
     [SerializeField] private ParticleSystem splashPrefab;
     [SerializeField] private LineRenderer connectLine;
 
+    private Animator _animator;
+    private static readonly int TeleportAnimationTrigger = Animator.StringToHash("teleport");
+
     #region Unity Events
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        _animator = GetComponent<Animator>();
+    }
 
     protected override void Start()
     {
@@ -28,6 +38,15 @@ public class Teleporter : Actor
         if (!actor) return;
 
         actor.Teleport(connectedNode.Position);
+
+        // Play teleport effects
+        Pop();
+        connectedNode.Pop();
+    }
+
+    public void Pop()
+    {
+        _animator.SetTrigger(TeleportAnimationTrigger);
     }
 
     public void PlayEffects()
