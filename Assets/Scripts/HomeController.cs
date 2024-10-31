@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -23,6 +24,8 @@ public class HomeController : MonoBehaviour
     [SerializeField] private TMP_Text initText;
     public bool IsInit { get; private set; }
 
+    [SerializeField] private Actor[] actors;
+
     private InputManager _inputManager;
 
     #region Unity Events
@@ -42,9 +45,21 @@ public class HomeController : MonoBehaviour
         _inputManager.Disable();
     }
 
-    private void Start()
+    private IEnumerator Start()
     {
         Time.timeScale = 1f;
+
+        // Disable all blocks
+        foreach (var actor in actors)
+            actor.GetComponent<Animator>().speed = 0f;
+        yield return new WaitForSeconds(0.25f);
+
+        // Enable blocks one by one
+        foreach (var actor in actors)
+        {
+            yield return new WaitForSeconds(0.125f);
+            actor.GetComponent<Animator>().speed = 1f;
+        }
     }
 
     #endregion
