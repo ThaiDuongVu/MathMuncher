@@ -9,6 +9,7 @@ public class Player : Actor
     [SerializeField] private AnimatorOverrideController sideAnimator;
     [SerializeField] private Animator arrowsDisplay;
     private Animator _animator;
+    private static readonly int MoveAnimationTrigger = Animator.StringToHash("move");
 
     [Header("Effects References")]
     [SerializeField] private ParticleSystem splashPrefab;
@@ -92,6 +93,7 @@ public class Player : Actor
             arrowsDisplay.SetTrigger(Mathf.Approximately(direction.y, 1f) ? "up" : "down");
         }
 
+        _animator.SetTrigger(MoveAnimationTrigger);
         return true;
     }
 }
