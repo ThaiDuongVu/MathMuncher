@@ -10,6 +10,7 @@ public class Teleporter : Actor
     [Header("Effects References")]
     [SerializeField] private ParticleSystem splashPrefab;
     [SerializeField] private LineRenderer connectLine;
+    [SerializeField] private AudioSource teleportAudio;
 
     private Animator _animator;
     private static readonly int TeleportAnimationTrigger = Animator.StringToHash("teleport");
@@ -38,6 +39,7 @@ public class Teleporter : Actor
         if (!actor) return;
 
         actor.Teleport(connectedNode.Position);
+        teleportAudio.Play();
 
         // Play teleport effects
         Pop();

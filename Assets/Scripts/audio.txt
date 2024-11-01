@@ -1,19 +1,2 @@
-//player move
-
-//block move
-//block merge
-//teleport
-//star collect
-//switch flip
-//button on
-//button off
-
-//ui click
-//ui select
-pause
-resume
-//level complete
-//game over
-
 home music
 background music

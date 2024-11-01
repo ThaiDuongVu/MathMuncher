@@ -14,6 +14,9 @@ public class ForceButton : Interactable
     [SerializeField] private LineRenderer connectLine;
     [SerializeField] private Transform[] connectedObjects;
 
+    [SerializeField] private AudioSource onAudio;
+    [SerializeField] private AudioSource offAudio;
+
     private readonly Vector2 _boxSize = new(0.5f, 0.5f);
     private bool _isOn;
     public bool IsOn
@@ -23,8 +26,16 @@ public class ForceButton : Interactable
         {
             _isOn = value;
             sprite.sprite = value ? onSprite : offSprite;
-            if (value) onActivated.Invoke();
-            else onDeactivated.Invoke();
+            if (value)
+            {
+                onActivated.Invoke();
+                onAudio.Play();
+            }
+            else
+            {
+                onDeactivated.Invoke();
+                offAudio.Play();
+            }
         }
     }
 

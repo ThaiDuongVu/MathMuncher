@@ -9,6 +9,8 @@ public class Block : Actor
 
     [Header("Effects References")]
     [SerializeField] private ParticleSystem splashPrefab;
+    [SerializeField] private AudioSource moveAudio;
+    [SerializeField] private AudioSource mergeAudio;
 
     private int _value;
 
@@ -68,6 +70,7 @@ public class Block : Actor
         // Play effects
         CameraShaker.Instance.Shake(CameraShakeMode.Light);
         Instantiate(splashPrefab, other.transform.position, Quaternion.identity);
+        mergeAudio.Play();
     }
 
     public bool Merge(Operator @operator)
@@ -81,6 +84,7 @@ public class Block : Actor
         // Play effects
         CameraShaker.Instance.Shake(CameraShakeMode.Light);
         Instantiate(splashPrefab, @operator.transform.position, Quaternion.identity);
+        mergeAudio.Play();
 
         return true;
     }
@@ -102,6 +106,7 @@ public class Block : Actor
             if (interactable && interactable.OnInteracted(this)) return true;
         }
 
+        // moveAudio.Play();
         return base.Move(direction);
     }
 }

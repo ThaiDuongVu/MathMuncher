@@ -26,6 +26,10 @@ public class GameController : MonoBehaviour
     [SerializeField] private SimpleMenu gameOverMenu;
     [SerializeField] private SimpleMenu levelCompleteMenu;
 
+    [Header("Audio References")]
+    [SerializeField] private AudioSource gameOverAudio;
+    [SerializeField] private AudioSource levelCompleteAudio;
+
     private InputManager _inputManager;
 
     #region Unity Events
@@ -109,6 +113,7 @@ public class GameController : MonoBehaviour
         // Play effects
         gameOverMenu.SetActive(true);
         PostProcessingController.Instance.SetDepthOfField(true);
+        gameOverAudio.Play();
     }
 
     private void CompleteLevel(int stars)
@@ -120,6 +125,7 @@ public class GameController : MonoBehaviour
         levelCompleteMenu.GetComponentInChildren<StarsDisplay>().SetStars(stars);
         levelCompleteMenu.SetActive(true);
         PostProcessingController.Instance.SetDepthOfField(true);
+        levelCompleteAudio.Play();
 
         // Update save
         UpdateLevelSave(Level.Instance.levelIndex, stars);

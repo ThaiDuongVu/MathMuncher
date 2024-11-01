@@ -10,6 +10,7 @@ public class Operator : Actor
 
     [Header("Effects References")]
     [SerializeField] private ParticleSystem splashPrefab;
+    [SerializeField] private AudioSource moveAudio;
 
     #region Unity Events
 
@@ -95,6 +96,7 @@ public class Operator : Actor
             if (interactable && interactable.OnInteracted(this)) return true;
         }
 
+        moveAudio.Play();
         return base.Move(direction);
     }
 }

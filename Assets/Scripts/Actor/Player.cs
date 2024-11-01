@@ -13,6 +13,7 @@ public class Player : Actor
 
     [Header("Effects References")]
     [SerializeField] private ParticleSystem splashPrefab;
+    [SerializeField] private AudioSource moveAudio;
 
     private Turnable[] _turnables;
 
@@ -94,6 +95,8 @@ public class Player : Actor
         }
 
         _animator.SetTrigger(MoveAnimationTrigger);
+        moveAudio.Play();
+
         return true;
     }
 }

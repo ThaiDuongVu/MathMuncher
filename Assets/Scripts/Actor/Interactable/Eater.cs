@@ -9,6 +9,7 @@ public class Eater : Interactable
 
     [Header("Effects References")]
     [SerializeField] private ParticleSystem splashPrefab;
+    [SerializeField] private AudioSource eatAudio;
 
     private int _value;
 
@@ -63,6 +64,7 @@ public class Eater : Interactable
         CameraShaker.Instance.Shake(CameraShakeMode.Light);
         GameController.Instance.PlaySlowMotionEffect();
         Instantiate(splashPrefab, transform.position, Quaternion.identity);
+        eatAudio.Play();
 
         return true;
     }

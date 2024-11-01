@@ -14,6 +14,8 @@ public class Switch : Interactable
     [SerializeField] private LineRenderer connectLine;
     [SerializeField] private Transform[] connectedObjects;
 
+    [SerializeField] private AudioSource flipAudio;
+
     private bool _isOn;
     public bool IsOn
     {
@@ -22,6 +24,8 @@ public class Switch : Interactable
         {
             _isOn = value;
             sprite.sprite = value ? onSprite : offSprite;
+            flipAudio.Play();
+
             if (value) onActivated.Invoke();
             else onDeactivated.Invoke();
         }

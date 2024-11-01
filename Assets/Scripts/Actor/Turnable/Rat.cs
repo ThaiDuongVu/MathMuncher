@@ -14,6 +14,8 @@ public class Rat : Turnable
     [SerializeField] private LineRenderer positionLine;
     private int _positionIndex;
 
+    [SerializeField] private AudioSource explosionAudio;
+
     #region Unity Events
 
     protected override void Awake()
@@ -68,5 +70,6 @@ public class Rat : Turnable
 
         actor.Explode();
         Talk("Mmm");
+        explosionAudio.Play();
     }
 }
