@@ -1106,11 +1106,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9184176116090493051, guid: 0f2f0914cc963f346a37a2dd04a70393, type: 3}
       propertyPath: mnkTutorial
-      value: '[F5] to restart level'
+      value: '[F5] to quick restart'
       objectReference: {fileID: 0}
     - target: {fileID: 9184176116090493051, guid: 0f2f0914cc963f346a37a2dd04a70393, type: 3}
       propertyPath: gamepadTutorial
-      value: '[Select] to restart level'
+      value: '[Select] to quick restart'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
