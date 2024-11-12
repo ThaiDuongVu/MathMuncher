@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4748362548157738618, guid: 0f2f0914cc963f346a37a2dd04a70393, type: 3}
       propertyPath: m_Name
-      value: Level_Arcade
+      value: Level_Arcade_01
       objectReference: {fileID: 0}
     - target: {fileID: 6390160305407656523, guid: 0f2f0914cc963f346a37a2dd04a70393, type: 3}
       propertyPath: m_LocalPosition.x
