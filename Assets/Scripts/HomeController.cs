@@ -26,23 +26,23 @@ public class HomeController : MonoBehaviour
 
     [SerializeField] private Actor[] actors;
 
-    private InputManager _inputManager;
+    private InputActions _inputActions;
 
     #region Unity Events
 
     private void OnEnable()
     {
-        _inputManager = new InputManager();
+        _inputActions = new InputActions();
 
         // Handle any input
-        _inputManager.Game.Any.performed += AnyOnPerformed;
+        _inputActions.Game.Any.performed += AnyOnPerformed;
 
-        _inputManager.Enable();
+        _inputActions.Enable();
     }
 
     private void OnDisable()
     {
-        _inputManager.Disable();
+        _inputActions.Disable();
     }
 
     private IEnumerator Start()

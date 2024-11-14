@@ -21,20 +21,20 @@ public class InputTypeController : MonoBehaviour
 
     public InputType InputType { get; private set; } = InputType.MouseKeyboard;
 
-    private InputManager _inputManager;
+    private InputActions _inputActions;
 
     #region Unity Event
 
     private void OnEnable()
     {
-        _inputManager = new InputManager();
-        _inputManager.Game.Any.performed += AnyOnPerformed;
-        _inputManager.Enable();
+        _inputActions = new InputActions();
+        _inputActions.Game.Any.performed += AnyOnPerformed;
+        _inputActions.Enable();
     }
 
     private void OnDisable()
     {
-        _inputManager.Disable();
+        _inputActions.Disable();
     }
 
     private void Update()
@@ -44,7 +44,7 @@ public class InputTypeController : MonoBehaviour
         // Enable/disable hardware cursor based on input type
         if (InputType == InputType.MouseKeyboard)
         {
-            if (GameController.Instance) CursorController.SetCursorEnabled(GameController.Instance.State != GameState.InProgress);
+            if (GameController.Instance) CursorController.SetCursorEnabled(!GameController.Instance.IsInProgress);
             else CursorController.SetCursorEnabled(true);
         }
         else CursorController.SetCursorEnabled(false);

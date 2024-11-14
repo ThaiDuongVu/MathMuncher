@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour
     #endregion
 
     public GameState State { get; private set; }
+    public bool IsInProgress => State == GameState.InProgress;
 
     [Header("Menu References")]
     [SerializeField] private SimpleMenu pauseMenu;
@@ -30,25 +31,25 @@ public class GameController : MonoBehaviour
     [SerializeField] private AudioSource gameOverAudio;
     [SerializeField] private AudioSource levelCompleteAudio;
 
-    private InputManager _inputManager;
+    private InputActions _inputActions;
 
     #region Unity Events
 
     private void OnEnable()
     {
-        _inputManager = new InputManager();
+        _inputActions = new InputActions();
 
         // Handle player pause/resume input
-        _inputManager.Game.Escape.performed += EscapeOnPerformed;
+        _inputActions.Game.Start.performed += StartOnPerformed;
         // Handle select input
-        _inputManager.Game.Restart.performed += RestartOnPerformed;
+        _inputActions.Game.Select.performed += SelectOnPerformed;
 
-        _inputManager.Enable();
+        _inputActions.Enable();
     }
 
     private void OnDisable()
     {
-        _inputManager.Disable();
+        _inputActions.Disable();
     }
 
     private void Start()
@@ -67,13 +68,13 @@ public class GameController : MonoBehaviour
 
     #region Input Handlers
 
-    private void EscapeOnPerformed(InputAction.CallbackContext context)
+    private void StartOnPerformed(InputAction.CallbackContext context)
     {
         if (State == GameState.InProgress) Pause();
         // else if (State == GameState.Paused) Resume();
     }
 
-    private void RestartOnPerformed(InputAction.CallbackContext context)
+    private void SelectOnPerformed(InputAction.CallbackContext context)
     {
         SceneLoader.Instance.Restart();
     }

@@ -17,24 +17,24 @@ public class Player : Actor
 
     private Turnable[] _turnables;
 
-    private InputManager _inputManager;
+    private InputActions _inputActions;
 
     #region Unity Events
 
     private void OnEnable()
     {
-        _inputManager = new InputManager();
+        _inputActions = new InputActions();
 
         // Handle movement input
-        _inputManager.Player.Move.performed += MoveOnPerformed;
-        _inputManager.Player.Move.canceled += MoveOnCanceled;
+        _inputActions.Player.Move.performed += MoveOnPerformed;
+        _inputActions.Player.Move.canceled += MoveOnCanceled;
 
-        _inputManager.Enable();
+        _inputActions.Enable();
     }
 
     private void OnDisable()
     {
-        _inputManager.Disable();
+        _inputActions.Disable();
     }
 
     protected override void Awake()
@@ -51,7 +51,7 @@ public class Player : Actor
 
     private void MoveOnPerformed(InputAction.CallbackContext context)
     {
-        if (GameController.Instance.State != GameState.InProgress) return;
+        if (GameController.Instance && !GameController.Instance.IsInProgress) return;
 
         var direction = context.ReadValue<Vector2>();
         if (direction.x != 0f && direction.y != 0f) return;
