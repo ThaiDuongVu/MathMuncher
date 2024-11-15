@@ -10,5 +10,6 @@ public enum OperatorType
     Factorial,
     Greater,
     Less,
-    Equal
+    Equal,
+    AbsoluteValue
 }

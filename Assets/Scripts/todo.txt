@@ -1,10 +1,20 @@
 interactable:
 tunnel
+trader?
+box - key
+gate - key
+gate - passcode
 
 math:
+absolute value
+sign
 pi
-mod
-div
+modulo
+trgonometry?
+vector?
 
-player customization
-music credits
+skins:
+tuxedo cat
+cheshire cat
+hamster
+bunny

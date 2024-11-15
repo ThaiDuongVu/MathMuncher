@@ -3,6 +3,7 @@ using UnityEngine;
 public class Platform : Interactable
 {
     private BoxCollider2D _collider;
+    private SpriteRenderer _sprite;
 
     #region Unity Events
 
@@ -11,6 +12,7 @@ public class Platform : Interactable
         base.Awake();
 
         _collider = GetComponent<BoxCollider2D>();
+        _sprite = GetComponentInChildren<SpriteRenderer>();
     }
 
     protected override void Start()
@@ -30,6 +32,7 @@ public class Platform : Interactable
     public void SetSolid(bool isSolid)
     {
         sprite.color = isSolid ? Color.white : new Color(1f, 1f, 1f, 0.0625f);
+        _sprite.sortingOrder = isSolid ? 0 : -11;
         _collider.enabled = isSolid;
     }
 }

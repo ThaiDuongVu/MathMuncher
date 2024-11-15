@@ -38,6 +38,7 @@ public class Operator : Actor
             OperatorType.Greater => operateValue > value ? 1 : 0,
             OperatorType.Less => operateValue < value ? 1 : 0,
             OperatorType.Equal => operateValue == value ? 1 : 0,
+            OperatorType.AbsoluteValue => Mathf.Abs(operateValue),
             _ => operateValue,
         };
     }
@@ -57,6 +58,7 @@ public class Operator : Actor
             OperatorType.Greater => ">",
             OperatorType.Less => "<",
             OperatorType.Equal => "=",
+            OperatorType.AbsoluteValue => "ABS",
             _ => "",
         };
     }
