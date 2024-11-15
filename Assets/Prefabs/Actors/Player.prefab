@@ -118,7 +118,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 2
+  m_PointLightOuterRadius: 3
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -1005,9 +1005,6 @@ MonoBehaviour:
   isStatic: 0
   sprite: {fileID: 5786325317098020901}
   speechBubble: {fileID: 4110777078064649641}
-  frontAnimator: {fileID: 9100000, guid: 6e66464b0a86f7445b6139951074c377, type: 2}
-  backAnimator: {fileID: 22100000, guid: 583f6ac6a7edeac44b6b83d7f12a1961, type: 2}
-  sideAnimator: {fileID: 22100000, guid: 5270e280250315149a79dbf7883d6e4c, type: 2}
   arrowsDisplay: {fileID: 2507036845843302407}
   splashPrefab: {fileID: 5446187696542703460, guid: 77231003811d33c48a7c0dcd963f3424, type: 3}
   moveAudio: {fileID: 4273499713018063451}
