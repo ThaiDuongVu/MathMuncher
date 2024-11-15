@@ -1,6 +1,7 @@
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using System.Collections;
 
 public class CustomizationController : MonoBehaviour
 {
@@ -26,19 +27,43 @@ public class CustomizationController : MonoBehaviour
         set
         {
             _currentIndex = value;
-            Select(value);
+            playerAnimator.runtimeAnimatorController = _allSkins[value].frontAnimator;
+
+            // Update texts
+            var data = SaveLoadController.Instance.LoadPerma();
+            skinText.SetText(_allSkins[value].name);
+            if (value == data.skinIndex) costText.SetText("Selected");
+            else costText.SetText($"Requires: {_allSkins[value].cost} stars");
         }
     }
 
+    private const float BufferDuration = 0.1f;
+    private bool _isBuffering;
+
+    [Header("Text References")]
     [SerializeField] private TMP_Text starsText;
     [SerializeField] private TMP_Text skinText;
     [SerializeField] private TMP_Text costText;
 
+    [Header("References")]
+    [SerializeField] private Animator playerAnimator;
+
+    private Skin[] _allSkins;
+    private int _allStars;
+
     #region Unity Events
+
+    private void Awake()
+    {
+        _allSkins = Resources.LoadAll<Skin>("Skins");
+    }
 
     private void Start()
     {
-        starsText.SetText($"Collected: {GetAllStars()} stars");
+        _allStars = GetAllStars();
+        starsText.SetText($"Collected: {_allStars} stars");
+        var data = SaveLoadController.Instance.LoadPerma();
+        CurrentIndex = data.skinIndex;
     }
 
     #endregion
@@ -47,15 +72,48 @@ public class CustomizationController : MonoBehaviour
 
     public int GetAllStars()
     {
-        var permaSaveData = SaveLoadController.Instance.LoadPerma();
-        var levelRatings = permaSaveData.levelRatings;
+        var data = SaveLoadController.Instance.LoadPerma();
+        var levelRatings = data.levelRatings;
         return levelRatings.Sum();
     }
 
     #endregion
 
-    private void Select(int skinIndex)
+    public void Select()
     {
-        
+        // Check cost before selecting
+        var data = SaveLoadController.Instance.LoadPerma();
+        if (_allSkins[CurrentIndex].cost > _allStars) return;
+
+        // Select skin index
+        data.skinIndex = CurrentIndex;
+        SaveLoadController.Instance.SavePerma(data);
+        costText.SetText("Selected");
+    }
+
+    public void Next()
+    {
+        if (_isBuffering) return;
+        CurrentIndex = CurrentIndex < _allSkins.Length - 1 ? CurrentIndex + 1 : 0;
+
+        // Buffer input
+        _isBuffering = true;
+        StartCoroutine(DisableBuffer());
+    }
+
+    public void Previous()
+    {
+        if (_isBuffering) return;
+        CurrentIndex = CurrentIndex > 0 ? CurrentIndex - 1 : _allSkins.Length - 1;
+
+        // Buffer input
+        _isBuffering = true;
+        StartCoroutine(DisableBuffer());
+    }
+
+    private IEnumerator DisableBuffer()
+    {
+        yield return new WaitForSecondsRealtime(BufferDuration);
+        _isBuffering = false;
     }
 }

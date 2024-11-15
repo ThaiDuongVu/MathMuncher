@@ -3,13 +3,11 @@ using UnityEngine.InputSystem;
 
 public class Player : Actor
 {
-    [Header("Animator References")]
-    [SerializeField] private RuntimeAnimatorController frontAnimator;
-    [SerializeField] private AnimatorOverrideController backAnimator;
-    [SerializeField] private AnimatorOverrideController sideAnimator;
+    [Header("References")]
     [SerializeField] private Animator arrowsDisplay;
     private Animator _animator;
     private static readonly int MoveAnimationTrigger = Animator.StringToHash("move");
+    private Skin _currentSkin;
 
     [Header("Effects References")]
     [SerializeField] private ParticleSystem splashPrefab;
@@ -43,6 +41,15 @@ public class Player : Actor
 
         _animator = GetComponent<Animator>();
         _turnables = FindObjectsByType<Turnable>(FindObjectsSortMode.None);
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+
+        // Set skin based on save data
+        InitSkin();
+        _animator.runtimeAnimatorController = _currentSkin.frontAnimator;
     }
 
     #endregion
@@ -85,12 +92,12 @@ public class Player : Actor
         // Update arrows display accordingly
         if (direction.x != 0f)
         {
-            _animator.runtimeAnimatorController = sideAnimator;
+            _animator.runtimeAnimatorController = _currentSkin.sideAnimator;
             arrowsDisplay.SetTrigger(Mathf.Approximately(direction.x, 1f) ? "right" : "left");
         }
         else
         {
-            _animator.runtimeAnimatorController = direction.y < 0f ? frontAnimator : backAnimator;
+            _animator.runtimeAnimatorController = direction.y < 0f ? _currentSkin.frontAnimator : _currentSkin.backAnimator;
             arrowsDisplay.SetTrigger(Mathf.Approximately(direction.y, 1f) ? "up" : "down");
         }
 
@@ -98,5 +105,11 @@ public class Player : Actor
         moveAudio.Play();
 
         return true;
+    }
+
+    public void InitSkin()
+    {
+        var data = SaveLoadController.Instance.LoadPerma();
+        _currentSkin = Resources.LoadAll<Skin>("Skins")[data.skinIndex];
     }
 }

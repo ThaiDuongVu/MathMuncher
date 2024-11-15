@@ -5,4 +5,5 @@ public class PermaSaveData
 {
     public int unlockedLevelIndex = 1;
     public List<int> levelRatings = new() { 0 };
+    public int skinIndex = 0;
 }
