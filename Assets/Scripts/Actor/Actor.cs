@@ -6,8 +6,8 @@ public class Actor : MonoBehaviour
     [SerializeField] protected SpriteRenderer sprite;
     [SerializeField] private SpeechBubble speechBubble;
 
-    protected Vector2 TargetPosition { get; set; }
-    protected bool IsMoving { get; set; }
+    public Vector2 TargetPosition { get; set; }
+    public bool IsMoving { get; set; }
     private const float MoveSpeed = 20f;
     private const float Epsilon = 0.1f;
 
@@ -24,14 +24,13 @@ public class Actor : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (IsMoving)
+        if (!IsMoving) return;
+
+        transform.position = Vector2.Lerp(transform.position, TargetPosition, MoveSpeed * Time.deltaTime);
+        if (Vector2.Distance(transform.position, TargetPosition) < Epsilon)
         {
-            transform.position = Vector2.Lerp(transform.position, TargetPosition, MoveSpeed * Time.deltaTime);
-            if (Vector2.Distance(transform.position, TargetPosition) < Epsilon)
-            {
-                IsMoving = false;
-                transform.position = TargetPosition;
-            }
+            IsMoving = false;
+            transform.position = TargetPosition;
         }
     }
 
@@ -73,6 +72,14 @@ public class Actor : MonoBehaviour
         speechBubble.gameObject.SetActive(true);
     }
 
+    #region Teleport Methods
+
+    public virtual void Teleport(Vector2 position)
+    {
+        transform.position = position;
+        TargetPosition = position;
+    }
+
     private bool Enter(Teleporter teleporter, Vector2 direction)
     {
         if (!teleporter) return false;
@@ -92,10 +99,12 @@ public class Actor : MonoBehaviour
         return false;
     }
 
-    public virtual void Teleport(Vector2 position)
+    #endregion
+
+    private void Hatch(Chicken chicken)
     {
-        transform.position = position;
-        TargetPosition = position;
+        if (!chicken) return;
+        StartCoroutine(chicken.OnHatched(this));
     }
 
     public virtual void Explode()
@@ -105,7 +114,7 @@ public class Actor : MonoBehaviour
 
     #region Move Methods
 
-    protected virtual bool Move(Vector2 direction)
+    public virtual bool Move(Vector2 direction)
     {
         if (IsMoving) return false;
         if (isStatic) return false;
@@ -119,6 +128,8 @@ public class Actor : MonoBehaviour
 
             // Teleport
             if (Enter(hit.transform.GetComponent<Teleporter>(), direction)) return true;
+            // Hatch
+            Hatch(hit.transform.GetComponent<Chicken>());
 
             if (!actor.Move(direction)) return false;
         }

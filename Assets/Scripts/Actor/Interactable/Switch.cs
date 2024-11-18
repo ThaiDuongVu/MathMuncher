@@ -67,7 +67,7 @@ public class Switch : Interactable
         return false;
     }
 
-    protected override bool Move(Vector2 direction)
+    public override bool Move(Vector2 direction)
     {
         return true;
     }

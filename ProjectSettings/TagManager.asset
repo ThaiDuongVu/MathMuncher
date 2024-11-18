@@ -12,6 +12,7 @@ TagManager:
   - Rat
   - Switch
   - ForceButton
+  - Chicken
   layers:
   - Default
   - TransparentFX

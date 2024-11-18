@@ -81,7 +81,7 @@ public class Operator : Actor
         base.Explode();
     }
 
-    protected override bool Move(Vector2 direction)
+    public override bool Move(Vector2 direction)
     {
         if (isStatic) return false;
 

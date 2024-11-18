@@ -39,7 +39,7 @@ public class Rat : Turnable
 
     #endregion
 
-    protected override bool Move(Vector2 direction)
+    public override bool Move(Vector2 direction)
     {
         return true;
     }
@@ -69,7 +69,7 @@ public class Rat : Turnable
         if (!actor || actor.isStatic) return;
 
         actor.Explode();
-        Talk("Mmm");
+        Talk("Hah");
         explosionAudio.Play();
     }
 }

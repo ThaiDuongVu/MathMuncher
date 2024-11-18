@@ -17,7 +17,7 @@ public class Block : Actor
     public int Value
     {
         get => _value;
-        private set
+        set
         {
             _value = value;
             valueText.SetText(value.ToString());
@@ -89,7 +89,7 @@ public class Block : Actor
         return true;
     }
 
-    protected override bool Move(Vector2 direction)
+    public override bool Move(Vector2 direction)
     {
         if (isStatic) return false;
 

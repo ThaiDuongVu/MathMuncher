@@ -65,9 +65,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Math Muncher developed by Duong Vu
+  m_text: 'Math Muncher developed by Duong Vu.
 
-    Music by Avgvst'
+    Sound effects by Little Robot
+    Sound Factory.
+
+    Music by Avgvst.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7b4633f0186785f429bb3252023127db, type: 2}
   m_sharedMaterial: {fileID: -7485718936900704297, guid: 7b4633f0186785f429bb3252023127db, type: 2}
