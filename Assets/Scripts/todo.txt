@@ -1,5 +1,5 @@
 interactable:
-chicken
+//chicken
 tunnel
 trader?
 box - key
@@ -17,6 +17,7 @@ vector?
 skins:
 //orange cat
 //tuxedo cat
+hello kitty
 bunny
 hamster
 cheshire cat
