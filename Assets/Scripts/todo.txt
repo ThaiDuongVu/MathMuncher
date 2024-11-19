@@ -17,7 +17,7 @@ vector?
 skins:
 //orange cat
 //tuxedo cat
-hello kitty
+//hello kitty
 bunny
 hamster
 cheshire cat

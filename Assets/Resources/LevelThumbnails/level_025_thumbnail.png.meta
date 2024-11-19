@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: b056cba6e03dff248aa9db381210d68c
+guid: eb609abf4fd8da14ab082b223750f3c9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5473882803356746623
-    second: player_hello_idle_front_0
-  - first:
-      213: 1144055123376328941
-    second: player_hello_idle_front_1
+      213: -7702301170944070913
+    second: level_025_thumbnail_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -142,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player_hello_idle_front_0
+      name: level_025_thumbnail_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 16
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -157,74 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f73c234686327fb40800000000000000
-      internalID: 5473882803356746623
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player_hello_idle_front_1
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: de0df40c21080ef00800000000000000
-      internalID: 1144055123376328941
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player_hello_idle_front_2
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ff65dd647156c274984dfeb1ba810048
-      internalID: -1949474094
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player_hello_idle_front_3
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a78458fc562ba134ba20e89a0d99b937
-      internalID: 1113105296
+      spriteID: ffaadc0c4edeb1590800000000000000
+      internalID: -7702301170944070913
       vertices: []
       indices: 
       edges: []
@@ -243,10 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      player_hello_idle_front_0: 5473882803356746623
-      player_hello_idle_front_1: 1144055123376328941
-      player_hello_idle_front_2: -1949474094
-      player_hello_idle_front_3: 1113105296
+      level_025_thumbnail_0: -7702301170944070913
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

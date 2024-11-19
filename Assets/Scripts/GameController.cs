@@ -60,7 +60,9 @@ public class GameController : MonoBehaviour
     private void Update()
     {
         // Check level complete
-        if (Level.Instance.levelIndex != -1 && FindObjectsByType<Block>(FindObjectsSortMode.None).Length == 0)
+        var blocksCount = FindObjectsByType<Block>(FindObjectsSortMode.None).Length;
+        var operatorCount = FindObjectsByType<Operator>(FindObjectsSortMode.None).Length;
+        if (Level.Instance.levelIndex != -1 && blocksCount == 0 && operatorCount == 0)
             CompleteLevel(3 - FindObjectsByType<Star>(FindObjectsSortMode.None).Length);
     }
 

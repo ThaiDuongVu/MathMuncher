@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cf13395751dbd44a8803d92adcad22f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Hello
+  name: Hello Cat
   cost: 27
   frontAnimator: {fileID: 22100000, guid: 3a442851fa2754c49b0badb50df9efef, type: 2}
   backAnimator: {fileID: 22100000, guid: aba7dfeef98bbaa4da62d703fd797b96, type: 2}
