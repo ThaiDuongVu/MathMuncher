@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2844984243379668926}
   - component: {fileID: 750989823468017044}
   m_Layer: 0
-  m_Name: Skin_2_Tuxedo
+  m_Name: Skin_3_Hello
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cf13395751dbd44a8803d92adcad22f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Tuxedo
-  cost: 18
-  frontAnimator: {fileID: 22100000, guid: 445c33660d64a2a4bbd3f81d2b8d7ab8, type: 2}
-  backAnimator: {fileID: 22100000, guid: c385f9670ee1d5b429c121a44160c10a, type: 2}
-  sideAnimator: {fileID: 22100000, guid: b0ce174242b6ac441b11f65de78cb043, type: 2}
+  name: Hello
+  cost: 27
+  frontAnimator: {fileID: 22100000, guid: 3a442851fa2754c49b0badb50df9efef, type: 2}
+  backAnimator: {fileID: 22100000, guid: aba7dfeef98bbaa4da62d703fd797b96, type: 2}
+  sideAnimator: {fileID: 22100000, guid: 978a6e6b8a04fea468149d3c2ae836ef, type: 2}
