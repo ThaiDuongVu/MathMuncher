@@ -461,6 +461,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level_Home
       objectReference: {fileID: 0}
+    - target: {fileID: 4798362779908536668, guid: 0f2f0914cc963f346a37a2dd04a70393, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5239646104688094124, guid: 0f2f0914cc963f346a37a2dd04a70393, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.size
       value: 2
@@ -1484,6 +1488,10 @@ PrefabInstance:
     - target: {fileID: 7798443361980129948, guid: 0f2f0914cc963f346a37a2dd04a70393, type: 3}
       propertyPath: m_Size.y
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8803160932208808091, guid: 0f2f0914cc963f346a37a2dd04a70393, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

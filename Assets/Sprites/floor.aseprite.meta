@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: efb8e0044871ff84791b6c23d57f0515
+guid: 55f01a2c8ef41774bbecc93f7cc6b5f4
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -152,7 +152,7 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: background
+    - name: floor
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
