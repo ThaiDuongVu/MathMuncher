@@ -18,7 +18,7 @@ public class Operator : Actor
     {
         base.Start();
 
-        operationText.SetText($"{OperatorSymbol(type)}{((value == -1000) ? "" : value)}");
+        operationText.SetText($"{OperatorSymbol(type)}");
     }
 
     #endregion
@@ -39,26 +39,28 @@ public class Operator : Actor
             OperatorType.Less => operateValue < value ? 1 : 0,
             OperatorType.Equal => operateValue == value ? 1 : 0,
             OperatorType.AbsoluteValue => Mathf.Abs(operateValue),
+            OperatorType.Mod => operateValue % value,
             _ => operateValue,
         };
     }
 
-    private static string OperatorSymbol(OperatorType type)
+    private string OperatorSymbol(OperatorType type)
     {
         return type switch
         {
             OperatorType.None => "",
-            OperatorType.Addition => "+",
-            OperatorType.Subtraction => "-",
-            OperatorType.Multiplication => "*",
-            OperatorType.Division => "/",
+            OperatorType.Addition => $"+{value}",
+            OperatorType.Subtraction => $"-{value}",
+            OperatorType.Multiplication => $"*{value}",
+            OperatorType.Division => $"/{value}",
             OperatorType.Square => "**2",
             OperatorType.SquareRoot => "SQ\nRT",
             OperatorType.Factorial => "!",
-            OperatorType.Greater => ">",
-            OperatorType.Less => "<",
-            OperatorType.Equal => "=",
+            OperatorType.Greater => $">{value}",
+            OperatorType.Less => $"<{value}",
+            OperatorType.Equal => $"={value}",
             OperatorType.AbsoluteValue => "ABS",
+            OperatorType.Mod => $"%{value}",
             _ => "",
         };
     }

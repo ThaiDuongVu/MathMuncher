@@ -11,5 +11,6 @@ public enum OperatorType
     Greater,
     Less,
     Equal,
-    AbsoluteValue
+    AbsoluteValue,
+    Mod
 }
