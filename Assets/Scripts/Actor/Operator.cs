@@ -18,7 +18,7 @@ public class Operator : Actor
     {
         base.Start();
 
-        operationText.SetText($"{OperatorSymbol(type)}");
+        operationText.SetText($"{GetSymbol()}");
     }
 
     #endregion
@@ -44,7 +44,7 @@ public class Operator : Actor
         };
     }
 
-    private string OperatorSymbol(OperatorType type)
+    private string GetSymbol()
     {
         return type switch
         {

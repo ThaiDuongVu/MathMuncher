@@ -80,7 +80,6 @@ public class ForceButton : Interactable
     public override bool OnInteracted(Actor actor)
     {
         if (!base.OnInteracted(actor)) return false;
-
         return false;
     }
 

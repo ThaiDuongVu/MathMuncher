@@ -32,8 +32,7 @@ public class CustomizationController : MonoBehaviour
             // Update texts
             var data = SaveLoadController.Instance.LoadPerma();
             skinText.SetText(_allSkins[value].name);
-            if (value == data.skinIndex) costText.SetText("Selected");
-            else costText.SetText($"Requires: {_allSkins[value].cost} stars");
+            costText.SetText(value == data.skinIndex ? "Selected" : $"Requires: {_allSkins[value].cost} stars");
         }
     }
 

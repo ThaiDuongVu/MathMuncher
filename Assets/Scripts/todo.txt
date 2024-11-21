@@ -1,5 +1,6 @@
 interactable:
 //chicken
+2 - player
 tunnel
 trader?
 box - key

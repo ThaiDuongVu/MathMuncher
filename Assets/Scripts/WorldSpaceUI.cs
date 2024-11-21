@@ -21,7 +21,7 @@ public class WorldSpaceUI : MonoBehaviour
         if (HomeController.Instance)
             overlay.gameObject.SetActive(!HomeController.Instance.IsInit);
 
-        for (int i = 1; i < _overlayElements.Length; i++)
+        for (var i = 1; i < _overlayElements.Length; i++)
         {
             _overlayElements[i].position = _mainCamera.WorldToScreenPoint(transform.position);
             _overlayElements[i].localScale = transform.lossyScale;
