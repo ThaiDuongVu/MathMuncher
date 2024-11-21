@@ -86,6 +86,7 @@ public class Player : Actor
 
     public override bool Move(Vector2 direction)
     {
+        var move = base.Move(direction);
         // Set animator based on direction
         // Update arrows display accordingly
         if (direction.x != 0f)
@@ -98,8 +99,8 @@ public class Player : Actor
             _animator.runtimeAnimatorController = direction.y < 0f ? _currentSkin.frontAnimator : _currentSkin.backAnimator;
             arrowsDisplay.SetTrigger(Mathf.Approximately(direction.y, 1f) ? "up" : "down");
         }
+        if (!move) return false;
 
-        if (!base.Move(direction)) return false;
         _animator.SetTrigger(MoveAnimationTrigger);
         moveAudio.Play();
 

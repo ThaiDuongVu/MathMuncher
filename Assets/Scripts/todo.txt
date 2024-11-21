@@ -1,12 +1,22 @@
 interactable:
+//star
+//platform
+//teleporter
+//force button
+//switch
+//rat
 //chicken
-//2 - player
+//player copy
 trader?
 box - key
 gate - key
 gate - passcode
 
 math:
+//oprations
+//square - square root
+//factorial
+//comparison
 //absolute value
 //modulo
 sign
@@ -18,6 +28,6 @@ skins:
 //orange cat
 //tuxedo cat
 //hello kitty
-bunny
+//bunny
 hamster
 cheshire cat

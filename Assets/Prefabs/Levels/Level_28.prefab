@@ -332,6 +332,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6565521299124879690, guid: b5a18ce41d7adaf489ffbe0f8d9fea6d, type: 3}
+      propertyPath: connectedObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6565521299124879690, guid: b5a18ce41d7adaf489ffbe0f8d9fea6d, type: 3}
+      propertyPath: 'connectedObjects.Array.data[0]'
+      value: 
+      objectReference: {fileID: 6992358201857177215}
+    - target: {fileID: 6565521299124879690, guid: b5a18ce41d7adaf489ffbe0f8d9fea6d, type: 3}
       propertyPath: onActivated.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
