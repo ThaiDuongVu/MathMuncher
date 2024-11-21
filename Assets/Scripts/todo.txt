@@ -1,7 +1,6 @@
 interactable:
 //chicken
-2 - player
-tunnel
+//2 - player
 trader?
 box - key
 gate - key
@@ -9,9 +8,9 @@ gate - passcode
 
 math:
 //absolute value
+//modulo
 sign
 pi
-modulo
 trgonometry?
 vector?
 

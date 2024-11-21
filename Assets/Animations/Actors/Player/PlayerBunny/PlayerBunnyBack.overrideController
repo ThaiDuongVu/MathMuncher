@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PlayerBunnyBack
+  m_Controller: {fileID: 9100000, guid: 6e66464b0a86f7445b6139951074c377, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 6c46ca3b9e62f97459bbd8d4bb797de9, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6771fc67b8b20d64bba8bdef34db9aea, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6e9027d44b373304aa32915bae8e034b, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ac9db49e291e98049b7c2f21fbced367, type: 2}
