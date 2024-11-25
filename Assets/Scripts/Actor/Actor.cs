@@ -38,21 +38,16 @@ public class Actor : MonoBehaviour
 
     #region Setters
 
-    private void SetFlip(bool value)
-    {
-        sprite.flipX = value;
-    }
-
     protected void SetFlipDirection(Vector2 direction)
     {
         switch (direction.x)
         {
             // Set sprite horizontal flip accordingly
             case < 0f:
-                SetFlip(true);
+                sprite.flipX = true;
                 break;
             case > 0f:
-                SetFlip(false);
+                sprite.flipX = false;
                 break;
         }
     }

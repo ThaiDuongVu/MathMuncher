@@ -13,6 +13,9 @@ TagManager:
   - Switch
   - ForceButton
   - Chicken
+  - Gate
+  - Key
+  - KeyHole
   layers:
   - Default
   - TransparentFX

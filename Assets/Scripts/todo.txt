@@ -8,9 +8,11 @@ interactable:
 //chicken
 //player copy
 trader?
-box - key
 gate - key
 gate - passcode
+floor modifier?
+block anchor
+tetris-like blocks
 
 math:
 //oprations
