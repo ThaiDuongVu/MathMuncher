@@ -7,8 +7,8 @@ interactable:
 //rat
 //chicken
 //player copy
+//gate - key
 trader?
-gate - key
 gate - passcode
 floor modifier?
 block anchor
@@ -23,7 +23,7 @@ math:
 //modulo
 sign
 pi
-trgonometry?
+trigonometry?
 vector?
 
 skins:
