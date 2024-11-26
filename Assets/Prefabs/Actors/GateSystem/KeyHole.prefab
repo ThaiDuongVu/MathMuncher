@@ -42,8 +42,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 76bb9b60e35bcba4094d6e41be861cd6, type: 3}
-  m_Resource: {fileID: 8300000, guid: 76bb9b60e35bcba4094d6e41be861cd6, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 53d8c5aa9cf334d4a842fd61cbc00e70, type: 3}
+  m_Resource: {fileID: 8300000, guid: 53d8c5aa9cf334d4a842fd61cbc00e70, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -164,6 +164,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4540683870286652084}
+  - {fileID: 2266034659312607696}
   - {fileID: 8432561260244289200}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -250,7 +251,7 @@ Animator:
   m_GameObject: {fileID: 1017680107125364093}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e3d01c94456d34d44aebbbf548b24d6e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 619b760d040a4f04fbc2d778a343c323, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -330,7 +331,6 @@ MonoBehaviour:
   isStatic: 1
   sprite: {fileID: 7264338794483871023}
   speechBubble: {fileID: 0}
-  activatedSprite: {fileID: 21300000, guid: 2dcd34a8d44d67046b890699600b77c0, type: 3}
   activateEvents:
     m_PersistentCalls:
       m_Calls: []
@@ -364,8 +364,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2266034659312607696}
+  m_Children: []
   m_Father: {fileID: 698336499285778229}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7264338794483871023
@@ -448,12 +447,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2275102543068239217}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.375, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4540683870286652084}
+  m_Father: {fileID: 698336499285778229}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5502158108647756610
 SpriteRenderer:

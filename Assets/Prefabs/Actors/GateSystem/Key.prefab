@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2937290690697445653}
+  m_Father: {fileID: 3725111152752385351}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2900798307822307492
 SpriteRenderer:
@@ -116,8 +116,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 293428660945463129}
+  m_Children: []
   m_Father: {fileID: 3725111152752385351}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6465781225690716862
@@ -188,6 +187,7 @@ GameObject:
   - component: {fileID: 8544466198292512204}
   - component: {fileID: 2275258026362171703}
   - component: {fileID: 1674004616159620514}
+  - component: {fileID: 6448840705464008677}
   m_Layer: 0
   m_Name: Key
   m_TagString: Key
@@ -209,6 +209,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2937290690697445653}
+  - {fileID: 293428660945463129}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &758474593672444959
@@ -282,7 +283,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.375, y: 0.75}
+  m_Size: {x: 0.375, y: 0.625}
   m_EdgeRadius: 0
 --- !u!114 &2275258026362171703
 MonoBehaviour:
@@ -320,7 +321,7 @@ MonoBehaviour:
     m_Mesh: {fileID: 0}
     m_LocalBounds:
       m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0.1875, y: 0.375, z: 0}
+      m_Extent: {x: 0.1875, y: 0.3125, z: 0}
     m_EdgeProcessing: 1
     m_TrimEdge: 0
     m_FlipX: 0
@@ -353,3 +354,25 @@ MonoBehaviour:
   sprite: {fileID: 6465781225690716862}
   speechBubble: {fileID: 0}
   splashPrefab: {fileID: 5446187696542703460, guid: dd759f24c3524c7459e49fbbea521a3b, type: 3}
+--- !u!95 &6448840705464008677
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7201580655887928195}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 935e781167f96d045a5a3053331ecfd6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
