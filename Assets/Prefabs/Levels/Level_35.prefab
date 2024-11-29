@@ -412,6 +412,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1079337826892415478}
     m_Modifications:
     - target: {fileID: -140495994138523269, guid: e635b7d67936eb6499587d055fb9c166, type: 3}
+      propertyPath: connectedTransform
+      value: 
+      objectReference: {fileID: 6327678239697913244}
+    - target: {fileID: -140495994138523269, guid: e635b7d67936eb6499587d055fb9c166, type: 3}
       propertyPath: activateEvents.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -2604,6 +2608,10 @@ PrefabInstance:
     - target: {fileID: 6856244404543051840, guid: 0f2f0914cc963f346a37a2dd04a70393, type: 3}
       propertyPath: m_LocalPosition.y
       value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7798443361980129948, guid: 0f2f0914cc963f346a37a2dd04a70393, type: 3}
+      propertyPath: m_Size.x
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8098298428089191145, guid: 0f2f0914cc963f346a37a2dd04a70393, type: 3}
       propertyPath: m_LocalPosition.x

@@ -916,6 +916,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 5852127529983224114}
     m_Modifications:
     - target: {fileID: -140495994138523269, guid: e635b7d67936eb6499587d055fb9c166, type: 3}
+      propertyPath: connectedTransform
+      value: 
+      objectReference: {fileID: 8765117319853811596}
+    - target: {fileID: -140495994138523269, guid: e635b7d67936eb6499587d055fb9c166, type: 3}
       propertyPath: activateEvents.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}

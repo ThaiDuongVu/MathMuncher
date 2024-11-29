@@ -6,6 +6,8 @@ public class KeyHole : Actor
     [Header("Key Hole References")]
     [SerializeField] private UnityEvent activateEvents;
     [SerializeField] private AudioSource activateAudio;
+    [SerializeField] private LineRenderer connectLine;
+    [SerializeField] private Transform connectedTransform;
 
     private Animator _animator;
     private readonly int ActivateAnimationTrigger = Animator.StringToHash("activate");
@@ -16,6 +18,14 @@ public class KeyHole : Actor
     {
         base.Awake();
         _animator = GetComponent<Animator>();
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+
+        connectLine.positionCount = 2;
+        connectLine.SetPositions(new Vector3[] { transform.position, connectedTransform.position });
     }
 
     #endregion
