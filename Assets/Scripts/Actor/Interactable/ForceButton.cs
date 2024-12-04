@@ -66,12 +66,12 @@ public class ForceButton : Interactable
         if (!IsOn && hits.Length > 1)
         {
             IsOn = true;
-            CameraShaker.Instance.Shake(CameraShakeMode.Light);
-            Instantiate(splashPrefab, transform.position, Quaternion.identity);
+            PlayEffects();
         }
         else if (IsOn && hits.Length <= 1)
         {
             IsOn = false;
+            PlayEffects();
         }
     }
 
@@ -86,5 +86,11 @@ public class ForceButton : Interactable
     public override bool Move(Vector2 direction)
     {
         return true;
+    }
+
+    private void PlayEffects()
+    {
+        CameraShaker.Instance.Shake(CameraShakeMode.Light);
+        Instantiate(splashPrefab, transform.position, Quaternion.identity);
     }
 }
