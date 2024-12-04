@@ -6,6 +6,18 @@ public class Star : Interactable
     [SerializeField] private ParticleSystem splashPrefab;
     [SerializeField] private AudioSource collectAudio;
 
+    private Player _player;
+
+    #region Unity Events
+
+    protected override void Awake()
+    {
+        base.Awake();
+        _player = FindFirstObjectByType<Player>();
+    }
+
+    #endregion
+
     public override bool OnInteracted(Actor actor)
     {
         if (!base.OnInteracted(actor)) return false;
@@ -21,6 +33,9 @@ public class Star : Interactable
         collectAudio.transform.SetParent(null);
         collectAudio.Play();
         Destroy(collectAudio.gameObject, 1f);
+
+        // Player speech
+        _player.Talk("Yeah!");
 
         return false;
     }

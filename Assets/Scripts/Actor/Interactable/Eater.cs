@@ -53,7 +53,7 @@ public class Eater : Interactable
         if (Value != block.Value) return false;
 
         _animator.SetTrigger(EatAnimationTrigger);
-        Talk("Mmm");
+        Talk("Nom");
 
         // Update block
         actor.Teleport(transform.position);

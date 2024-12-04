@@ -60,7 +60,7 @@ public class Actor : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-    protected virtual void Talk(string message)
+    public virtual void Talk(string message)
     {
         speechBubble.gameObject.SetActive(false);
         speechBubble.SetText(message);

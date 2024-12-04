@@ -69,7 +69,7 @@ public class Rat : Turnable
         if (!actor || actor.isStatic) return;
 
         actor.Explode();
-        Talk("Hah");
+        Talk("Nom");
         explosionAudio.Play();
     }
 }
