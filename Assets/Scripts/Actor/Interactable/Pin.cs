@@ -1,0 +1,43 @@
+using UnityEngine;
+
+public class Pin : Interactable
+{
+    private Animator _animator;
+    private static readonly int LockAnimationBool = Animator.StringToHash("isLocked");
+    private bool _isLocked;
+    public bool IsLocked
+    {
+        get => _isLocked;
+        set
+        {
+            _isLocked = value;
+            _animator.SetBool(LockAnimationBool, value);
+        }
+    }
+
+    #region Unity Events
+
+    protected override void Awake()
+    {
+        base.Awake();
+        _animator = GetComponent<Animator>();
+    }
+
+    #endregion
+
+    public override bool Move(Vector2 direction)
+    {
+        if (Physics2D.OverlapBoxAll(transform.position, Vector2.one * 0.5f, 0f).Length > 1) return false;
+        return true;
+    }
+
+    public override bool OnInteracted(Actor actor)
+    {
+        return false;
+    }
+
+    public void SetLocked(bool value)
+    {
+        IsLocked = value;
+    }
+}

@@ -8,7 +8,7 @@ interactable:
 //chicken
 //player copy
 //gate - key
-pin
+//pin
 trader?
 gate - passcode
 floor modifier?
