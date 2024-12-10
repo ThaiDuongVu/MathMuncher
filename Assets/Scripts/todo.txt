@@ -9,6 +9,7 @@ interactable:
 //player copy
 //gate - key
 //pin
+key colors
 trader?
 gate - passcode
 floor modifier?
