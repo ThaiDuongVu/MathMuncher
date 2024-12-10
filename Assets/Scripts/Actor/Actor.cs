@@ -111,8 +111,16 @@ public class Actor : MonoBehaviour
 
     public virtual bool Move(Vector2 direction)
     {
+        // Guard clauses
         if (IsMoving) return false;
         if (isStatic) return false;
+        // If actor is pinned
+        var overlaps = Physics2D.OverlapBoxAll(transform.position, Vector2.one * 0.5f, 0f);
+        if (overlaps.Length > 1)
+        {
+            foreach (var overlap in overlaps)
+                if (overlap.CompareTag("Pin")) return false;
+        }
 
         // Raycast to check if movable
         var hit = Physics2D.Raycast(transform.position, direction, 1f);

@@ -15,12 +15,21 @@ public class Pin : Interactable
         }
     }
 
+    [Header("Pin References")]
+    [SerializeField] private bool lockedOnStart = true;
+
     #region Unity Events
 
     protected override void Awake()
     {
         base.Awake();
         _animator = GetComponent<Animator>();
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+        IsLocked = lockedOnStart;
     }
 
     #endregion
