@@ -9,12 +9,11 @@ interactable:
 //player copy
 //gate - key
 //pin
-key colors
-trader?
 gate - passcode
+key colors
+compound blocks
+trader?
 floor modifier?
-block anchor
-tetris-like blocks
 
 grass system
 
