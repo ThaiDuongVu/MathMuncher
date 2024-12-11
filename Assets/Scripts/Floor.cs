@@ -27,17 +27,18 @@ public class Floor : MonoBehaviour
         while (i < grassCount)
         {
             // Generate position based on floor size
-            var position = new Vector2(Random.Range(-size.x / 2, size.x / 2), Random.Range(-size.y / 2, size.y / 2));
-            if (size.x % 2 == 0) position.x += Random.Range(0, 2) == 0 ? 0.5f : -0.5f;
-            if (size.y % 2 == 0) position.y += Random.Range(0, 2) == 0 ? 0.5f : -0.5f;
+            var position = (Vector2)transform.position + new Vector2(Random.Range(-size.x / 2, size.x / 2), Random.Range(-size.y / 2, size.y / 2));
+            if (size.x % 2 == 0) position.x += position.x <= 0f ? 0.5f : -0.5f;
+            if (size.y % 2 == 0) position.y += position.y <= 0f ? 0.5f : -0.5f;
 
-            // Guard clause
+            // Guard clauses
             if (grassPositions.Contains(position)) continue;
+            // Debug.Log(Physics2D.OverlapBoxAll(position, Vector2.one * 0.5f, 0f).Length);
+            if (Physics2D.OverlapBoxAll(position, Vector2.one * 0.5f, 0f).Length > 0) continue;
 
             // Spawn and add grass to list
-            var grass = Instantiate(grassPrefab, transform.position, Quaternion.identity);
+            var grass = Instantiate(grassPrefab, position, Quaternion.identity);
             grass.transform.SetParent(transform);
-            grass.transform.localPosition = position;
             grassPositions.Add(position);
             i++;
         }
