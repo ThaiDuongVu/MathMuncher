@@ -5,12 +5,16 @@ public enum OperatorType
     Subtraction,
     Multiplication,
     Division,
+    // ---
     Square,
     SquareRoot,
     Factorial,
+    // ---
     Greater,
     Less,
     Equal,
+    // ---
     AbsoluteValue,
+    Negation,
     Mod
 }

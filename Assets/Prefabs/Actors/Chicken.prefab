@@ -379,7 +379,7 @@ MonoBehaviour:
   sprite: {fileID: 8756605228735721661}
   speechBubble: {fileID: 7977403961786854913}
   hatchRecoveryTime: 0.25
-  blockPrefab: {fileID: 7675159460473033813, guid: b78616308f03e864c8a27431b100d486, type: 3}
+  blockPrefab: {fileID: 1961277228189668339, guid: 91bcb0a9aaef3c1469ce43a0258a28ea, type: 3}
   splashPrefab: {fileID: 5446187696542703460, guid: c35d02cbdccf0f94685133408cdd016a, type: 3}
   hatchAudio: {fileID: 6752391555161118220}
 --- !u!1 &2375334973174596044

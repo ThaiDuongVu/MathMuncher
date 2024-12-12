@@ -32,13 +32,17 @@ public class Operator : Actor
             OperatorType.Subtraction => operateValue - value,
             OperatorType.Multiplication => operateValue * value,
             OperatorType.Division => operateValue / value,
+            // ---
             OperatorType.Square => operateValue * operateValue,
             OperatorType.SquareRoot => (int)Mathf.Sqrt(operateValue),
             OperatorType.Factorial => Factorial(operateValue),
+            // ---
             OperatorType.Greater => operateValue > value ? 1 : 0,
             OperatorType.Less => operateValue < value ? 1 : 0,
             OperatorType.Equal => operateValue == value ? 1 : 0,
+            // ---
             OperatorType.AbsoluteValue => Mathf.Abs(operateValue),
+            OperatorType.Negation => -operateValue,
             OperatorType.Mod => operateValue % value,
             _ => operateValue,
         };
@@ -53,13 +57,17 @@ public class Operator : Actor
             OperatorType.Subtraction => $"-{value}",
             OperatorType.Multiplication => $"*{value}",
             OperatorType.Division => $"/{value}",
+            // ---
             OperatorType.Square => "**2",
             OperatorType.SquareRoot => "SQ\nRT",
             OperatorType.Factorial => "!",
+            // ---
             OperatorType.Greater => $">{value}",
             OperatorType.Less => $"<{value}",
             OperatorType.Equal => $"={value}",
+            // ---
             OperatorType.AbsoluteValue => "ABS",
+            OperatorType.Negation => "~",
             OperatorType.Mod => $"%{value}",
             _ => "",
         };

@@ -35,6 +35,7 @@ public class Chicken : Actor
 
         _animator.SetTrigger(HatchAnimationTrigger);
         var block = Instantiate(blockPrefab, transform.position, Quaternion.identity);
+        block.initValue = 1;
 
         // Play effects
         CameraShaker.Instance.Shake(CameraShakeMode.Light);

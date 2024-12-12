@@ -15,10 +15,8 @@ compound blocks
 trader?
 floor modifier?
 
-grass system
-
 math:
-//oprations
+//operations
 //square - square root
 //factorial
 //comparison
@@ -36,3 +34,7 @@ skins:
 //bunny
 hamster
 cheshire cat
+
+other:
+eng game screen
+operator explanation

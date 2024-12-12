@@ -4,7 +4,7 @@ using UnityEngine;
 public class Block : Actor
 {
     [Header("Block References")] 
-    [SerializeField] private int initValue;
+    public int initValue;
     [SerializeField] private TMP_Text valueText;
 
     [Header("Effects References")]
