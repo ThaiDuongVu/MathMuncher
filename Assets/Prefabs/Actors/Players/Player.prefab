@@ -1005,6 +1005,7 @@ MonoBehaviour:
   isStatic: 0
   sprite: {fileID: 5786325317098020901}
   speechBubble: {fileID: 4110777078064649641}
+  isPrimaryPlayer: 1
   arrowsDisplay: {fileID: 2507036845843302407}
   splashPrefab: {fileID: 5446187696542703460, guid: 77231003811d33c48a7c0dcd963f3424, type: 3}
   moveAudio: {fileID: 4273499713018063451}

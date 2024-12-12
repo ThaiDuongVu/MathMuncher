@@ -152,7 +152,7 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: hardware_cursor
+    - name: cursor
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:

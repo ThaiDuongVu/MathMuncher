@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class Player : Actor
 {
-    [Header("References")]
+    [Header("Player References")]
     [SerializeField] private Animator arrowsDisplay;
     private Animator _animator;
     private static readonly int MoveAnimationTrigger = Animator.StringToHash("move");

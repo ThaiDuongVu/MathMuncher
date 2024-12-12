@@ -114,6 +114,8 @@ public class Actor : MonoBehaviour
         // Guard clauses
         if (IsMoving) return false;
         if (isStatic) return false;
+        if (direction == Vector2.zero) return false;
+
         // If actor is pinned
         var overlaps = Physics2D.OverlapBoxAll(transform.position, Vector2.one * 0.5f, 0f);
         if (overlaps.Length > 1)

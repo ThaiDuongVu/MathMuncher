@@ -9,7 +9,7 @@ public class Floor : MonoBehaviour
     [Header("Grass References")]
     [SerializeField] private Grass grassPrefab;
     [SerializeField] private int grassCount;
-    private List<Vector2> grassPositions = new();
+    private readonly List<Vector2> _grassPositions = new();
 
     #region Unity Events
 
@@ -32,14 +32,14 @@ public class Floor : MonoBehaviour
             if (size.y % 2 == 0) position.y += position.y <= 0f ? 0.5f : -0.5f;
 
             // Guard clauses
-            if (grassPositions.Contains(position)) continue;
+            if (_grassPositions.Contains(position)) continue;
             // Debug.Log(Physics2D.OverlapBoxAll(position, Vector2.one * 0.5f, 0f).Length);
             if (Physics2D.OverlapBoxAll(position, Vector2.one * 0.5f, 0f).Length > 0) continue;
 
             // Spawn and add grass to list
             var grass = Instantiate(grassPrefab, position, Quaternion.identity);
             grass.transform.SetParent(transform);
-            grassPositions.Add(position);
+            _grassPositions.Add(position);
             i++;
         }
     }

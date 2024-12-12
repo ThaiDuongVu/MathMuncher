@@ -1043,6 +1043,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Click"",
+                    ""type"": ""Button"",
+                    ""id"": ""9a65119d-a85e-405e-88be-82e00bdf52ac"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1254,6 +1263,17 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0ca6c398-1737-4e24-8ea8-0ac41599014d"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1349,6 +1369,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_Game_Start = m_Game.FindAction("Start", throwIfNotFound: true);
         m_Game_Any = m_Game.FindAction("Any", throwIfNotFound: true);
         m_Game_Select = m_Game.FindAction("Select", throwIfNotFound: true);
+        m_Game_Click = m_Game.FindAction("Click", throwIfNotFound: true);
     }
 
     ~@InputActions()
@@ -1648,6 +1669,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Game_Start;
     private readonly InputAction m_Game_Any;
     private readonly InputAction m_Game_Select;
+    private readonly InputAction m_Game_Click;
     public struct GameActions
     {
         private @InputActions m_Wrapper;
@@ -1655,6 +1677,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         public InputAction @Start => m_Wrapper.m_Game_Start;
         public InputAction @Any => m_Wrapper.m_Game_Any;
         public InputAction @Select => m_Wrapper.m_Game_Select;
+        public InputAction @Click => m_Wrapper.m_Game_Click;
         public InputActionMap Get() { return m_Wrapper.m_Game; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1673,6 +1696,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Select.started += instance.OnSelect;
             @Select.performed += instance.OnSelect;
             @Select.canceled += instance.OnSelect;
+            @Click.started += instance.OnClick;
+            @Click.performed += instance.OnClick;
+            @Click.canceled += instance.OnClick;
         }
 
         private void UnregisterCallbacks(IGameActions instance)
@@ -1686,6 +1712,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Select.started -= instance.OnSelect;
             @Select.performed -= instance.OnSelect;
             @Select.canceled -= instance.OnSelect;
+            @Click.started -= instance.OnClick;
+            @Click.performed -= instance.OnClick;
+            @Click.canceled -= instance.OnClick;
         }
 
         public void RemoveCallbacks(IGameActions instance)
@@ -1778,5 +1807,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         void OnStart(InputAction.CallbackContext context);
         void OnAny(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);
+        void OnClick(InputAction.CallbackContext context);
     }
 }

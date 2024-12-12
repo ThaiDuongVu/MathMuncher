@@ -36,8 +36,7 @@ public class Pin : Interactable
 
     public override bool Move(Vector2 direction)
     {
-        if (Physics2D.OverlapBoxAll(transform.position, Vector2.one * 0.5f, 0f).Length > 1) return false;
-        return true;
+        return Physics2D.OverlapBoxAll(transform.position, Vector2.one * 0.5f, 0f).Length <= 1;
     }
 
     public override bool OnInteracted(Actor actor)

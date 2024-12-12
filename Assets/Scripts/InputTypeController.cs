@@ -42,12 +42,7 @@ public class InputTypeController : MonoBehaviour
         if (Mouse.current.delta.ReadValue().magnitude > 0f) InputType = InputType.MouseKeyboard;
 
         // Enable/disable hardware cursor based on input type
-        if (InputType == InputType.MouseKeyboard)
-        {
-            if (GameController.Instance) CursorController.SetCursorEnabled(!GameController.Instance.IsInProgress);
-            else CursorController.SetCursorEnabled(true);
-        }
-        else CursorController.SetCursorEnabled(false);
+        CursorController.SetCursorEnabled(InputType == InputType.MouseKeyboard);
     }
 
     #endregion

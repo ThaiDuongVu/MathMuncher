@@ -10,7 +10,7 @@ public class KeyHole : Actor
     [SerializeField] private Transform connectedTransform;
 
     private Animator _animator;
-    private readonly int ActivateAnimationTrigger = Animator.StringToHash("activate");
+    private static readonly int ActivateAnimationTrigger = Animator.StringToHash("activate");
 
     #region Unity Events
 
@@ -25,7 +25,7 @@ public class KeyHole : Actor
         base.Start();
 
         connectLine.positionCount = 2;
-        connectLine.SetPositions(new Vector3[] { transform.position, connectedTransform.position });
+        connectLine.SetPositions(new[] { transform.position, connectedTransform.position });
     }
 
     #endregion
