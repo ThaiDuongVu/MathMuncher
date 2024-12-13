@@ -1,8 +1,10 @@
+using System.Collections;
 using UnityEngine;
 
-public class Grass : Actor
+public class Grass : MonoBehaviour
 {
     [Header("Grass References")]
+    [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private Sprite[] sprites;
 
     private Animator _animator;
@@ -10,30 +12,23 @@ public class Grass : Actor
 
     #region Unity Events
 
-    protected override void Awake()
+    private void Awake()
     {
-        base.Awake();
         _animator = GetComponent<Animator>();
     }
 
-    protected override void Start()
+    private void Start()
     {
-        base.Start();
         sprite.sprite = sprites[Random.Range(0, sprites.Length)];
+        StartCoroutine(Sway());
     }
 
     #endregion
 
-    public override bool Move(Vector2 direction)
+    private IEnumerator Sway()
     {
-        return true;
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            _animator.SetTrigger(SwayAnimationTrigger);
-        }
+        _animator.SetTrigger(SwayAnimationTrigger);
+        yield return new WaitForSeconds(Random.Range(1f, 3f));
+        StartCoroutine(Sway());
     }
 }

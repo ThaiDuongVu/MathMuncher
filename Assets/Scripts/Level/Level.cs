@@ -30,6 +30,7 @@ public class Level : MonoBehaviour
     private void Update()
     {
         tutorialText.SetText(InputTypeController.Instance.InputType == InputType.MouseKeyboard ? mnkTutorial : gamepadTutorial);
+        // if (Input.GetKeyDown(KeyCode.N)) SceneLoader.Instance.LoadNextLevel();
     }
 
     #endregion

@@ -17,7 +17,7 @@ public class CursorController : MonoBehaviour
     private Vector2 _direction;
 
     private Camera _mainCamera;
-    private Player _player;
+    private Player[] _players;
     private InputActions _inputActions;
 
     #region Unity Events
@@ -41,7 +41,7 @@ public class CursorController : MonoBehaviour
     private void Awake()
     {
         _mainCamera = Camera.main;
-        _player = FindFirstObjectByType<Player>();
+        _players = FindObjectsByType<Player>(FindObjectsSortMode.None);
     }
 
     private void Start()
@@ -72,6 +72,8 @@ public class CursorController : MonoBehaviour
 
         moveLine.gameObject.SetActive(true);
         arrow.gameObject.SetActive(true);
+
+        // Set start position
         _startPosition = _mainCamera.ScreenToWorldPoint(Mouse.current.position.value);
     }
 
@@ -81,7 +83,10 @@ public class CursorController : MonoBehaviour
 
         moveLine.gameObject.SetActive(false);
         arrow.gameObject.SetActive(false);
-        _player.Move(NormalizeDirection(_direction));
+
+        // Move player(s) based on direction
+        foreach (var player in _players)
+            player.Move(NormalizeDirection(_direction));
     }
 
     #endregion

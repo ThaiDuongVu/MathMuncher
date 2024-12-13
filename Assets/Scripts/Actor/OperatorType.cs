@@ -15,6 +15,6 @@ public enum OperatorType
     Equal,
     // ---
     AbsoluteValue,
+    Mod,
     Negation,
-    Mod
 }

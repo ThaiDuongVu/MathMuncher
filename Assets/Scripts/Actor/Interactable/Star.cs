@@ -6,14 +6,14 @@ public class Star : Interactable
     [SerializeField] private ParticleSystem splashPrefab;
     [SerializeField] private AudioSource collectAudio;
 
-    private Player _player;
+    private Player[] _players;
 
     #region Unity Events
 
     protected override void Awake()
     {
         base.Awake();
-        _player = FindFirstObjectByType<Player>();
+        _players = FindObjectsByType<Player>(FindObjectsSortMode.None);
     }
 
     #endregion
@@ -35,7 +35,7 @@ public class Star : Interactable
         Destroy(collectAudio.gameObject, 1f);
 
         // Player speech
-        _player.Talk("Yeah!");
+        foreach (var player in _players) player.Talk("Yeah!");
 
         return false;
     }
