@@ -12,6 +12,7 @@ public class Pin : Interactable
         {
             _isLocked = value;
             _animator.SetBool(LockAnimationBool, value);
+            Level.Instance.SendUIMessage(value ? "Pin locked" : "Pin unlocked");
         }
     }
 

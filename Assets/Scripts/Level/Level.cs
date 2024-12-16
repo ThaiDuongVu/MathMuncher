@@ -25,6 +25,9 @@ public class Level : MonoBehaviour
     [SerializeField] private string mnkTutorial;
     [SerializeField] private string gamepadTutorial;
 
+    [Header("Message References")]
+    [SerializeField] private TMP_Text messageText;
+
     #region Unity Events
 
     private void Update()
@@ -34,4 +37,11 @@ public class Level : MonoBehaviour
     }
 
     #endregion
+
+    public void SendUIMessage(string message)
+    {
+        messageText.gameObject.SetActive(false);
+        messageText.SetText(message);
+        messageText.gameObject.SetActive(true);
+    }
 }

@@ -7,7 +7,7 @@ public class KeyHole : Actor
     [SerializeField] private UnityEvent activateEvents;
     [SerializeField] private AudioSource activateAudio;
     [SerializeField] private LineRenderer connectLine;
-    [SerializeField] private Transform connectedTransform;
+    [SerializeField] private Transform[] connectedObjects;
 
     private Animator _animator;
     private static readonly int ActivateAnimationTrigger = Animator.StringToHash("activate");
@@ -24,8 +24,17 @@ public class KeyHole : Actor
     {
         base.Start();
 
-        connectLine.positionCount = 2;
-        connectLine.SetPositions(new[] { transform.position, connectedTransform.position });
+        connectLine.positionCount = connectedObjects.Length * 2;
+        var j = 0;
+        for (var i = 0; i < connectLine.positionCount; i++)
+        {
+            if (i % 2 == 0) connectLine.SetPosition(i, transform.position);
+            else
+            {
+                connectLine.SetPosition(i, connectedObjects[j].position);
+                j++;
+            }
+        }
     }
 
     #endregion

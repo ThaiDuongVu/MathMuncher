@@ -34,5 +34,6 @@ public class Platform : Interactable
         sprite.color = isSolid ? Color.white : new Color(1f, 1f, 1f, 0.0625f);
         _sprite.sortingOrder = isSolid ? 0 : -11;
         _collider.enabled = isSolid;
+        Level.Instance.SendUIMessage(isSolid ? "Wall locked" : "Wall unlocked");
     }
 }

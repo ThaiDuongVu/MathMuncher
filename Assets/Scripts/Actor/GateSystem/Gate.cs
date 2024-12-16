@@ -17,5 +17,6 @@ public class Gate : MonoBehaviour
     public void Open()
     {
         _animator.SetTrigger(OpenAnimationTrigger);
+        Level.Instance.SendUIMessage("Gate opened");
     }
 }

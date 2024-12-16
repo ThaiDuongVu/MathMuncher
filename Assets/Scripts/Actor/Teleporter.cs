@@ -44,6 +44,7 @@ public class Teleporter : Actor
         // Play teleport effects
         Pop();
         connectedNode.Pop();
+        Level.Instance.SendUIMessage("Teleported");
     }
 
     public void Pop()
