@@ -36,6 +36,7 @@ public class Pin : Interactable
 
     public override bool Move(Vector2 direction)
     {
+        if (IsLocked) return false;
         return Physics2D.OverlapBoxAll(transform.position, Vector2.one * 0.5f, 0f).Length <= 1;
     }
 

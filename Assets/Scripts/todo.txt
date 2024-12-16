@@ -9,9 +9,9 @@ interactable:
 //player copy
 //gate - key
 //pin
+compound blocks
 gate - passcode
 key colors
-compound blocks
 trader?
 floor modifier?
 
@@ -22,6 +22,7 @@ math:
 //comparison
 //absolute value
 //modulo
+//negation
 sign
 pi
 trigonometry?
