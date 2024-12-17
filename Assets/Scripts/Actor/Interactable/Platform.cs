@@ -2,24 +2,12 @@ using UnityEngine;
 
 public class Platform : Interactable
 {
-    private BoxCollider2D _collider;
-    private SpriteRenderer _sprite;
-
     #region Unity Events
-
-    protected override void Awake()
-    {
-        base.Awake();
-
-        _collider = GetComponent<BoxCollider2D>();
-        _sprite = GetComponentInChildren<SpriteRenderer>();
-    }
 
     protected override void Start()
     {
+        _boxCollider.size = new Vector2(sprite.size.x, sprite.size.y) - new Vector2(0.125f, 0.125f);
         base.Start();
-
-        _collider.size = new Vector2(sprite.size.x, sprite.size.y);
     }
 
     #endregion
@@ -32,8 +20,8 @@ public class Platform : Interactable
     public void SetSolid(bool isSolid)
     {
         sprite.color = isSolid ? Color.white : new Color(1f, 1f, 1f, 0.0625f);
-        _sprite.sortingOrder = isSolid ? 0 : -11;
-        _collider.enabled = isSolid;
+        sprite.sortingOrder = isSolid ? 0 : -11;
+        _boxCollider.enabled = isSolid;
         Level.Instance.SendUIMessage(isSolid ? "Wall locked" : "Wall unlocked");
     }
 }

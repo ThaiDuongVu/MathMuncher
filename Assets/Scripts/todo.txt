@@ -37,6 +37,5 @@ hamster
 cheshire cat
 
 other:
-system message
 eng game screen
 operator explanation

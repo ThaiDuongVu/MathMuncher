@@ -10,15 +10,21 @@ public class Actor : MonoBehaviour
     public bool IsMoving { get; set; }
     private const float MoveSpeed = 20f;
     private const float Epsilon = 0.1f;
+    protected float CastDistance = 1f;
+    protected Vector2 CastSize;
+
+    protected BoxCollider2D _boxCollider;
 
     #region Unity Events
 
     protected virtual void Awake()
     {
+        _boxCollider = GetComponent<BoxCollider2D>();
     }
 
     protected virtual void Start()
     {
+        CastSize = _boxCollider.size;
         TargetPosition = transform.position;
     }
 
@@ -40,6 +46,7 @@ public class Actor : MonoBehaviour
 
     protected void SetFlipDirection(Vector2 direction)
     {
+        if (!sprite) return;
         switch (direction.x)
         {
             // Set sprite horizontal flip accordingly
@@ -124,9 +131,10 @@ public class Actor : MonoBehaviour
                 if (overlap.CompareTag("Pin")) return false;
         }
 
-        // Raycast to check if movable
-        var hit = Physics2D.Raycast(transform.position, direction, 1f);
-        if (hit)
+        // Cast to check if movable
+        // var hit = Physics2D.Raycast(transform.position, direction, RaycastDistance);
+        var hits = Physics2D.BoxCastAll(transform.position, CastSize, 0f, direction, CastDistance);
+        foreach (var hit in hits)
         {
             var actor = hit.transform.GetComponent<Actor>();
             if (!actor) return false;
