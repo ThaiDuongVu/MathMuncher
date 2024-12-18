@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Block : Actor
 {
-    [Header("Block References")] 
+    [Header("Block References")]
     public int initValue;
     [SerializeField] private TMP_Text valueText;
 
@@ -13,7 +13,6 @@ public class Block : Actor
     [SerializeField] private AudioSource mergeAudio;
 
     private int _value;
-
     public int Value
     {
         get => _value;
@@ -89,15 +88,30 @@ public class Block : Actor
         return true;
     }
 
+    // public bool Enter(PassHole passHole)
+    // {
+    //     if (!passHole) return false;
+    //     if (Value != passHole.Value) return false;
+
+    //     passHole.OnActivated();
+    //     Destroy(gameObject);
+
+    //     // Play effects
+    //     CameraShaker.Instance.Shake(CameraShakeMode.Light);
+    //     Instantiate(splashPrefab, passHole.transform.position, Quaternion.identity);
+
+    //     return true;
+    // }
+
     public override bool Move(Vector2 direction)
     {
-        if (isStatic) return false;
+        if (!CanMove(direction)) return false;
 
         // Raycast
         var hit = Physics2D.Raycast(transform.position, direction, 1f);
         if (hit)
         {
-            // Merge
+            // Merge & enter
             Merge(hit.transform.GetComponent<Operator>());
             Merge(hit.transform.GetComponent<Block>());
 
@@ -106,7 +120,6 @@ public class Block : Actor
             if (interactable && interactable.OnInteracted(this)) return true;
         }
 
-        // moveAudio.Play();
         return base.Move(direction);
     }
 }

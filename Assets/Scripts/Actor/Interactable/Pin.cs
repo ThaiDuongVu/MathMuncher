@@ -35,15 +35,15 @@ public class Pin : Interactable
 
     #endregion
 
+    public override bool OnInteracted(Actor actor)
+    {
+        return false;
+    }
+
     public override bool Move(Vector2 direction)
     {
         if (IsLocked) return false;
         return Physics2D.OverlapBoxAll(transform.position, Vector2.one * 0.5f, 0f).Length <= 1;
-    }
-
-    public override bool OnInteracted(Actor actor)
-    {
-        return false;
     }
 
     public void SetLocked(bool value)

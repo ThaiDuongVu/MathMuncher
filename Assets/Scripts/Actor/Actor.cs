@@ -116,20 +116,10 @@ public class Actor : MonoBehaviour
 
     #region Move Methods
 
+    // Returns whether a move is successfully performed
     public virtual bool Move(Vector2 direction)
     {
-        // Guard clauses
-        if (IsMoving) return false;
-        if (isStatic) return false;
-        if (direction == Vector2.zero) return false;
-
-        // If actor is pinned
-        var overlaps = Physics2D.OverlapBoxAll(transform.position, Vector2.one * 0.5f, 0f);
-        if (overlaps.Length > 1)
-        {
-            foreach (var overlap in overlaps)
-                if (overlap.CompareTag("Pin")) return false;
-        }
+        if (!CanMove(direction)) return false;
 
         // Cast to check if movable
         // var hit = Physics2D.Raycast(transform.position, direction, RaycastDistance);
@@ -150,6 +140,24 @@ public class Actor : MonoBehaviour
         TargetPosition += direction;
         IsMoving = true;
         SetFlipDirection(direction);
+        return true;
+    }
+
+    public virtual bool CanMove(Vector2 direction)
+    {
+        // Guard clauses
+        if (IsMoving) return false;
+        if (isStatic) return false;
+        if (direction == Vector2.zero) return false;
+
+        // If actor is pinned
+        var overlaps = Physics2D.OverlapBoxAll(transform.position, Vector2.one * 0.5f, 0f);
+        if (overlaps.Length > 1)
+        {
+            foreach (var overlap in overlaps)
+                if (overlap.CompareTag("Pin")) return false;
+        }
+
         return true;
     }
 

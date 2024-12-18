@@ -21,7 +21,7 @@ public class Key : Actor
 
     public override bool Move(Vector2 direction)
     {
-        if (isStatic) return false;
+        if (!CanMove(direction)) return false;
 
         // Raycast
         var hit = Physics2D.Raycast(transform.position, direction, 1f);

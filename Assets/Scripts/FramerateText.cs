@@ -14,7 +14,7 @@ public class FramerateText : MonoBehaviour
 
     private void Update()
     {
-        _text.SetText((1f / Time.deltaTime).ToString("N2"));
+        _text.SetText(((int)(1f / Time.deltaTime)).ToString());
     }
 
     #endregion

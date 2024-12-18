@@ -1,18 +1,22 @@
 using UnityEngine;
 using TMPro;
 
-public class Eater : Interactable
+public class PassHole : Interactable
 {
-    [Header("Eater References")]
-    [SerializeField] private int initValue;
+    [Header("Value References")]
+    public int initValue;
     [SerializeField] private TMP_Text valueText;
 
-    [Header("Effects References")]
+    [Header("Pass Hole References")]
+    [SerializeField] private AudioSource activateAudio;
     [SerializeField] private ParticleSystem splashPrefab;
-    [SerializeField] private AudioSource eatAudio;
+    [SerializeField] private LineRenderer connectLine;
+    [SerializeField] private Transform[] connectedObjects;
+
+    private Animator _animator;
+    private static readonly int ActivateAnimationTrigger = Animator.StringToHash("activate");
 
     private int _value;
-
     public int Value
     {
         get => _value;
@@ -22,22 +26,31 @@ public class Eater : Interactable
             valueText.SetText(value.ToString());
         }
     }
-
-    private Animator _animator;
-    private static readonly int EatAnimationTrigger = Animator.StringToHash("eat");
+    public bool IsActivated { get; private set; }
 
     #region Unity Events
 
     protected override void Awake()
     {
         base.Awake();
-
         _animator = GetComponent<Animator>();
     }
 
     protected override void Start()
     {
         base.Start();
+
+        connectLine.positionCount = connectedObjects.Length * 2;
+        var j = 0;
+        for (var i = 0; i < connectLine.positionCount; i++)
+        {
+            if (i % 2 == 0) connectLine.SetPosition(i, transform.position);
+            else
+            {
+                connectLine.SetPosition(i, connectedObjects[j].position);
+                j++;
+            }
+        }
 
         Value = initValue;
     }
@@ -47,6 +60,7 @@ public class Eater : Interactable
     public override bool OnInteracted(Actor actor)
     {
         // Guard clauses
+        if (IsActivated) return false;
         if (!base.OnInteracted(actor)) return false;
         // Only blocks can be eaten
         var block = actor.GetComponent<Block>();
@@ -54,8 +68,8 @@ public class Eater : Interactable
         // Compare block values
         if (Value != block.Value) return false;
 
-        _animator.SetTrigger(EatAnimationTrigger);
-        Talk("Nom");
+        _animator.SetTrigger(ActivateAnimationTrigger);
+        IsActivated = true;
 
         // Update block
         actor.Teleport(transform.position);
@@ -66,7 +80,7 @@ public class Eater : Interactable
         CameraShaker.Instance.Shake(CameraShakeMode.Light);
         GameController.Instance.PlaySlowMotionEffect();
         Instantiate(splashPrefab, transform.position, Quaternion.identity);
-        eatAudio.Play();
+        activateAudio.Play();
 
         return true;
     }

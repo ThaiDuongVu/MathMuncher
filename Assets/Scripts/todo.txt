@@ -9,7 +9,6 @@ interactable:
 //player copy
 //gate - key
 //pin
-compound blocks
 gate - passcode
 key colors
 trader?

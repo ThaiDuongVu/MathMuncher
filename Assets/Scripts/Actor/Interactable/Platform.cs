@@ -22,6 +22,7 @@ public class Platform : Interactable
         sprite.color = isSolid ? Color.white : new Color(1f, 1f, 1f, 0.0625f);
         sprite.sortingOrder = isSolid ? 0 : -11;
         _boxCollider.enabled = isSolid;
+
         Level.Instance.SendUIMessage(isSolid ? "Wall locked" : "Wall unlocked");
     }
 }
