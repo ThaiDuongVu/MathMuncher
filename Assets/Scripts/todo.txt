@@ -9,10 +9,10 @@ interactable:
 //player copy
 //gate - key
 //pin
-gate - passcode
-key colors
+//gate - passcode
+floor modifier: lava
+key colors?
 trader?
-floor modifier?
 
 math:
 //operations
@@ -36,5 +36,6 @@ hamster
 cheshire cat
 
 other:
+gate open sound
 eng game screen
 operator explanation

@@ -25,6 +25,7 @@ public class HomeController : MonoBehaviour
     public bool IsInit { get; private set; }
 
     [SerializeField] private Actor[] actors;
+    [SerializeField] private Eater eater;
 
     private InputActions _inputActions;
 
@@ -60,6 +61,12 @@ public class HomeController : MonoBehaviour
             yield return new WaitForSeconds(0.125f);
             actor.GetComponent<Animator>().speed = 1f;
         }
+
+        // Play eater animation
+        var eaterAnimator = eater.GetComponent<Animator>(); 
+        eaterAnimator.SetTrigger("eat");
+        yield return new WaitForSeconds(0.5f);
+        eaterAnimator.speed = 0f;
     }
 
     #endregion
