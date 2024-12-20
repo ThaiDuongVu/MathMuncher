@@ -36,6 +36,6 @@ hamster
 cheshire cat
 
 other:
-gate open sound
+egg hatch effect
 eng game screen
 operator explanation
