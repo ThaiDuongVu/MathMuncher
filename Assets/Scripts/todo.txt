@@ -11,6 +11,7 @@ interactable:
 //pin
 //gate - passcode
 floor modifier: lava
+light - hidden items
 key colors?
 trader?
 

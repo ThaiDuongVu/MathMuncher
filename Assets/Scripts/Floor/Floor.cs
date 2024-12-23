@@ -4,7 +4,7 @@ using UnityEngine;
 public class Floor : MonoBehaviour
 {
     [Header("Floor References")]
-    [SerializeField] private SpriteRenderer mainSprite;
+    [SerializeField] protected SpriteRenderer mainSprite;
 
     [Header("Grass References")]
     [SerializeField] private Grass grassPrefab;
@@ -13,7 +13,7 @@ public class Floor : MonoBehaviour
 
     #region Unity Events
 
-    private void Start()
+    protected virtual void Start()
     {
         GenerateGrass();
     }

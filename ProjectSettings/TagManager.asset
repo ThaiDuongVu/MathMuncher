@@ -18,6 +18,8 @@ TagManager:
   - KeyHole
   - Pin
   - Grass
+  - Pass
+  - PassHole
   layers:
   - Default
   - TransparentFX
