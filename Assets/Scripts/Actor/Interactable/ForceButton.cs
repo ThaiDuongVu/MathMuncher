@@ -62,6 +62,7 @@ public class ForceButton : Interactable
     {
         base.Update();
 
+        // Toggle button if something stands on it
         var hits = Physics2D.OverlapBoxAll(transform.position, _boxSize, 0f);
         if (!IsOn && hits.Length > 1)
         {

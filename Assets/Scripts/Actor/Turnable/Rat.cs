@@ -7,14 +7,26 @@ public class Rat : Turnable
     [SerializeField] private AnimatorOverrideController backAnimator;
     [SerializeField] private AnimatorOverrideController sideAnimator;
     private Animator _animator;
+    private static readonly int SleepAnimationBool = Animator.StringToHash("isSleeping");
 
-    [Header("Position References")] [SerializeField]
+    [Header("Position References")]
+    [SerializeField]
     private Vector2[] positions;
-
     [SerializeField] private LineRenderer positionLine;
     private int _positionIndex;
 
     [SerializeField] private AudioSource explosionAudio;
+
+    private bool _isSleeping;
+    public bool IsSleeping
+    {
+        get => _isSleeping;
+        set
+        {
+            _isSleeping = value;
+            _animator.SetBool(SleepAnimationBool, value);
+        }
+    }
 
     #region Unity Events
 
@@ -46,6 +58,7 @@ public class Rat : Turnable
 
     public override void UpdateTurn(Vector2 direction)
     {
+        if (IsSleeping) return;
         base.UpdateTurn(direction);
 
         // Update index
@@ -61,6 +74,11 @@ public class Rat : Turnable
         // Set animator based on direction
         if (newDirection.x != 0f) _animator.runtimeAnimatorController = sideAnimator;
         else _animator.runtimeAnimatorController = newDirection.y < 0f ? frontAnimator : backAnimator;
+    }
+
+    public void SetSleep(bool isSleeping)
+    {
+        IsSleeping = isSleeping;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

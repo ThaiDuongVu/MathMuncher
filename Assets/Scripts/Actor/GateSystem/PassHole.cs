@@ -40,6 +40,14 @@ public class PassHole : Interactable
     {
         base.Start();
 
+        Value = initValue;
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+
+        // Update connect line
         connectLine.positionCount = connectedObjects.Length * 2;
         var j = 0;
         for (var i = 0; i < connectLine.positionCount; i++)
@@ -51,8 +59,6 @@ public class PassHole : Interactable
                 j++;
             }
         }
-
-        Value = initValue;
     }
 
     #endregion
