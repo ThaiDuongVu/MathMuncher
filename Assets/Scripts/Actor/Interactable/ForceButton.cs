@@ -46,16 +46,6 @@ public class ForceButton : Interactable
         base.Start();
 
         connectLine.positionCount = connectedObjects.Length * 2;
-        var j = 0;
-        for (var i = 0; i < connectLine.positionCount; i++)
-        {
-            if (i % 2 == 0) connectLine.SetPosition(i, transform.position);
-            else
-            {
-                connectLine.SetPosition(i, connectedObjects[j].position);
-                j++;
-            }
-        }
     }
 
     protected override void Update()
@@ -73,6 +63,18 @@ public class ForceButton : Interactable
         {
             IsOn = false;
             PlayEffects();
+        }
+
+        // Update connect line
+        var j = 0;
+        for (var i = 0; i < connectLine.positionCount; i++)
+        {
+            if (i % 2 == 0) connectLine.SetPosition(i, transform.position);
+            else
+            {
+                connectLine.SetPosition(i, connectedObjects[j].position);
+                j++;
+            }
         }
     }
 

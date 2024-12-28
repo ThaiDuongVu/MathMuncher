@@ -10,11 +10,12 @@ interactable:
 //gate - key
 //pin
 //gate - passcode
-floor modifier: lava
+//floor modifier: lava
+bridge
 light - hidden items
 key colors?
 trader?
-pusher
+turn platform
 
 math:
 //operations
