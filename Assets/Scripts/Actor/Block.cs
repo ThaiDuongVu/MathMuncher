@@ -88,21 +88,6 @@ public class Block : Actor
         return true;
     }
 
-    // public bool Enter(PassHole passHole)
-    // {
-    //     if (!passHole) return false;
-    //     if (Value != passHole.Value) return false;
-
-    //     passHole.OnActivated();
-    //     Destroy(gameObject);
-
-    //     // Play effects
-    //     CameraShaker.Instance.Shake(CameraShakeMode.Light);
-    //     Instantiate(splashPrefab, passHole.transform.position, Quaternion.identity);
-
-    //     return true;
-    // }
-
     public override bool Move(Vector2 direction)
     {
         if (!CanMove(direction)) return false;
