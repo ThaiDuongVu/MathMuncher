@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6661517610255214591
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2643938808222211181, guid: 94ccde689e2ac264987bc7967a09be9b, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3831371331622266454, guid: 94ccde689e2ac264987bc7967a09be9b, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7019430184210522850, guid: 94ccde689e2ac264987bc7967a09be9b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7019430184210522850, guid: 94ccde689e2ac264987bc7967a09be9b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7019430184210522850, guid: 94ccde689e2ac264987bc7967a09be9b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7019430184210522850, guid: 94ccde689e2ac264987bc7967a09be9b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7019430184210522850, guid: 94ccde689e2ac264987bc7967a09be9b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7019430184210522850, guid: 94ccde689e2ac264987bc7967a09be9b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7019430184210522850, guid: 94ccde689e2ac264987bc7967a09be9b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7019430184210522850, guid: 94ccde689e2ac264987bc7967a09be9b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7019430184210522850, guid: 94ccde689e2ac264987bc7967a09be9b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7019430184210522850, guid: 94ccde689e2ac264987bc7967a09be9b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8803750581610543506, guid: 94ccde689e2ac264987bc7967a09be9b, type: 3}
+      propertyPath: m_Name
+      value: TeleporterHidden
+      objectReference: {fileID: 0}
+    - target: {fileID: 8951952747300686435, guid: 94ccde689e2ac264987bc7967a09be9b, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 94ccde689e2ac264987bc7967a09be9b, type: 3}
