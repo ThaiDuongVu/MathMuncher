@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Turnable : Actor
+public interface ITurnable
 {
-    public virtual void UpdateTurn(Vector2 direction) { }
+    void UpdateTurn(Vector2 direction);
 }

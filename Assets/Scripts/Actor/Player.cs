@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,7 +15,7 @@ public class Player : Actor
     [SerializeField] private ParticleSystem splashPrefab;
     [SerializeField] private AudioSource moveAudio;
 
-    private Turnable[] _turnables;
+    private ITurnable[] _turnables;
 
     private InputActions _inputActions;
 
@@ -40,7 +42,7 @@ public class Player : Actor
         base.Awake();
 
         _animator = GetComponent<Animator>();
-        _turnables = FindObjectsByType<Turnable>(FindObjectsSortMode.None);
+        _turnables = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<ITurnable>().ToArray();
     }
 
     protected override void Start()

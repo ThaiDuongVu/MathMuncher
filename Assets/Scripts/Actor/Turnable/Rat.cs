@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Rat : Turnable
+public class Rat : Actor, ITurnable
 {
     [Header("Animator References")]
     [SerializeField] private RuntimeAnimatorController frontAnimator;
@@ -51,15 +51,11 @@ public class Rat : Turnable
 
     #endregion
 
-    public override bool Move(Vector2 direction)
-    {
-        return true;
-    }
+    #region Interface Implementations
 
-    public override void UpdateTurn(Vector2 direction)
+    public void UpdateTurn(Vector2 direction)
     {
         if (IsSleeping) return;
-        base.UpdateTurn(direction);
 
         // Update index
         if (_positionIndex < positions.Length - 1) _positionIndex++;
@@ -74,6 +70,13 @@ public class Rat : Turnable
         // Set animator based on direction
         if (newDirection.x != 0f) _animator.runtimeAnimatorController = sideAnimator;
         else _animator.runtimeAnimatorController = newDirection.y < 0f ? frontAnimator : backAnimator;
+    }
+
+    #endregion
+
+    public override bool Move(Vector2 direction)
+    {
+        return true;
     }
 
     public void SetSleep(bool isSleeping)
