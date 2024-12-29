@@ -95,8 +95,8 @@ GameObject:
   - component: {fileID: 3694784392852237473}
   - component: {fileID: 8595884450586536698}
   - component: {fileID: 6977435905034175523}
-  - component: {fileID: 8092108104736588283}
   - component: {fileID: 7378846264313053883}
+  - component: {fileID: 8092108104736588283}
   m_Layer: 0
   m_Name: LightBulb
   m_TagString: LightBulb
@@ -113,7 +113,7 @@ Transform:
   m_GameObject: {fileID: 2176955947653393028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -195,21 +195,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
---- !u!114 &8092108104736588283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2176955947653393028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f3ce110a0ecf6b49a1d3c1e5fecb8d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isStatic: 0
-  sprite: {fileID: 1726482280982686005}
-  speechBubble: {fileID: 0}
 --- !u!95 &7378846264313053883
 Animator:
   serializedVersion: 7
@@ -232,6 +217,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8092108104736588283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2176955947653393028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f3ce110a0ecf6b49a1d3c1e5fecb8d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStatic: 0
+  sprite: {fileID: 1726482280982686005}
+  speechBubble: {fileID: 0}
 --- !u!1 &3841410534172059981
 GameObject:
   m_ObjectHideFlags: 0
