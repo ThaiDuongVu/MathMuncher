@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 51e66e7c03e94154b8f8bdf130e179ef
+guid: 3575c87ce8f2d36408f8cb9c3206d5e8
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -122,9 +122,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: particle
+  - name: player_idle_front
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: -0.36363637}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -132,9 +132,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 16
-      height: 16
-    spriteID: 60868386b3504c846a09198ceb8c628d
+      width: 10
+      height: 11
+    spriteID: 3328d23e49b020a489656cf67f09adb2
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -146,21 +146,21 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -2127706800
-    name: particle
+    guid: 778054574
+    name: player_idle_front
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: bridge
+    - name: player_hamster_move_back
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 0
-        y: 0
-        width: 16
-        height: 16
-      spriteId: 60868386b3504c846a09198ceb8c628d
+        x: 3
+        y: 4
+        width: 10
+        height: 11
+      spriteId: 3328d23e49b020a489656cf67f09adb2
     linkedCells: []
     parentIndex: -1
   platformSettings: []

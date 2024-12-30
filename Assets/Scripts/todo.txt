@@ -11,11 +11,11 @@ interactable:
 //pin
 //gate - passcode
 //floor modifier: lava
-bridge
-light - hidden items
+//bridge
+//turn platform
+//light - hidden items
 key colors?
 trader?
-turn platform
 
 math:
 //operations
@@ -40,6 +40,5 @@ hamster
 cheshire cat
 
 other:
-egg hatch effect
 eng game screen
 operator explanation
