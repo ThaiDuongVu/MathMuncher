@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChickenHidden
       objectReference: {fileID: 0}
+    - target: {fileID: 3991115980446052085, guid: 9ccaaa656ac450344a262d64632e42dc, type: 3}
+      propertyPath: blockPrefab
+      value: 
+      objectReference: {fileID: 8002231811051985001, guid: 03966bf5e0e7d294aa9c27c90e26cbdf, type: 3}
     - target: {fileID: 5407522722903305076, guid: 9ccaaa656ac450344a262d64632e42dc, type: 3}
       propertyPath: m_MaskInteraction
       value: 1
