@@ -36,8 +36,10 @@ skins:
 //hello kitty
 //bunny
 //hamster
+//sphynx cat
+//cheshire cat
+squirrel
 grey cat
-cheshire cat
 
 other:
 eng game screen

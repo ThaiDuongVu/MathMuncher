@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2844984243379668926}
   - component: {fileID: 750989823468017044}
   m_Layer: 0
-  m_Name: Skin_5_Hamster
+  m_Name: Skin_6_Sphynx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cf13395751dbd44a8803d92adcad22f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Hamster
-  cost: 63
-  frontAnimator: {fileID: 22100000, guid: 6229786752fa4e645a3a226a3564c3ee, type: 2}
-  backAnimator: {fileID: 22100000, guid: 760110db66fd5e44d9d2706f2db31096, type: 2}
-  sideAnimator: {fileID: 22100000, guid: 26de184322d7b064ca7c33096341742b, type: 2}
+  name: Sphynx
+  cost: 84
+  frontAnimator: {fileID: 22100000, guid: 4ab64fda50142214daaf44fc06215c79, type: 2}
+  backAnimator: {fileID: 22100000, guid: 6adb81caabb540145a9966e83bb67fef, type: 2}
+  sideAnimator: {fileID: 22100000, guid: 2266760ad346e564eaad53111f90f91f, type: 2}

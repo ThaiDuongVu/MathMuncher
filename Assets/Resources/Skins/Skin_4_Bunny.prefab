@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Bunny
-  cost: 36
+  cost: 45
   frontAnimator: {fileID: 22100000, guid: bd6811a50683d574b8bebebf6e989ddb, type: 2}
   backAnimator: {fileID: 22100000, guid: 0f5bb992058e83949bacb1c2166d1600, type: 2}
   sideAnimator: {fileID: 22100000, guid: ed027cb7c08a5004d96e9f2c90e3b948, type: 2}

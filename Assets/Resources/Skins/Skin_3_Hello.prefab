@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Hello Cat
-  cost: 27
+  cost: 30
   frontAnimator: {fileID: 22100000, guid: 3a442851fa2754c49b0badb50df9efef, type: 2}
   backAnimator: {fileID: 22100000, guid: aba7dfeef98bbaa4da62d703fd797b96, type: 2}
   sideAnimator: {fileID: 22100000, guid: 978a6e6b8a04fea468149d3c2ae836ef, type: 2}
