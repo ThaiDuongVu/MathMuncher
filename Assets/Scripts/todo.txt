@@ -35,8 +35,8 @@ skins:
 //tuxedo cat
 //hello kitty
 //bunny
+//hamster
 grey cat
-hamster
 cheshire cat
 
 other:

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3870919985947926964}
   - component: {fileID: 240153631869540787}
   m_Layer: 0
-  m_Name: Light
+  m_Name: RevealLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -232,6 +232,9 @@ MonoBehaviour:
   isStatic: 0
   sprite: {fileID: 1726482280982686005}
   speechBubble: {fileID: 0}
+  revealRadius: 1.5
+  revealLight: {fileID: 240153631869540787}
+  revealCircle: {fileID: 1998399060509696480}
 --- !u!1 &3841410534172059981
 GameObject:
   m_ObjectHideFlags: 0
