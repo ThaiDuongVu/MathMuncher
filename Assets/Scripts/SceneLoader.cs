@@ -59,7 +59,8 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        Load($"Level_{Level.Instance.levelIndex + 1:D2}");
+        if (Level.Instance.levelIndex >= 55) Load("End");
+        else Load($"Level_{Level.Instance.levelIndex + 1:D2}");
     }
 
     public void Restart()

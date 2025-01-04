@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Gate : MonoBehaviour
 {
+    [SerializeField] private bool openOnStart;
     [SerializeField] private AudioSource openAudio;
     private Animator _animator;
     private static readonly int OpenAnimationTrigger = Animator.StringToHash("open");
@@ -12,6 +13,11 @@ public class Gate : MonoBehaviour
     private void Awake()
     {
         _animator = GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
+        if (openOnStart) Open();
     }
 
     #endregion

@@ -42,5 +42,5 @@ squirrel
 grey cat
 
 other:
-eng game screen
+end game fireworks
 operator explanation
