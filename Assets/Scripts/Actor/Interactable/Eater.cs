@@ -57,7 +57,7 @@ public class Eater : Interactable
         _animator.SetTrigger(EatAnimationTrigger);
         Talk("Nom");
 
-        // Update block
+        // Destroy block
         actor.Teleport(transform.position);
         block.Shrink();
         Destroy(actor.gameObject, 0.5f);

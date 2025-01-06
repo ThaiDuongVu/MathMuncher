@@ -12,6 +12,10 @@ public class Block : Actor
     [SerializeField] private AudioSource moveAudio;
     [SerializeField] private AudioSource mergeAudio;
 
+    [Header("Chain References")]
+    [SerializeField] private Block chainedBlock;
+    [SerializeField] private LineRenderer chain;
+
     private int _value;
     public int Value
     {
@@ -25,6 +29,7 @@ public class Block : Actor
 
     private Animator _animator;
     private static readonly int ShrinkAnimationTrigger = Animator.StringToHash("shrink");
+    private static readonly int WiggleAnimationTrigger = Animator.StringToHash("wiggle");
 
     #region Unity Events
 
@@ -40,6 +45,20 @@ public class Block : Actor
         base.Start();
 
         Value = initValue;
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+
+        if (chainedBlock)
+        {
+            chain.positionCount = 2;
+            chain.SetPosition(0, transform.position);
+            chain.SetPosition(1, chainedBlock.transform.position);
+        }
+        else
+            chain.positionCount = 0;
     }
 
     #endregion
@@ -58,9 +77,10 @@ public class Block : Actor
         _animator.SetTrigger(ShrinkAnimationTrigger);
     }
 
-    private void Merge(Block other)
+    public virtual void Merge(Block other)
     {
         if (!other) return;
+        if (other == chainedBlock) return;
 
         Value += other.Value;
         Reactivate();
@@ -72,7 +92,7 @@ public class Block : Actor
         mergeAudio.Play();
     }
 
-    public bool Merge(Operator @operator)
+    public virtual bool Merge(Operator @operator)
     {
         if (!@operator) return false;
 
@@ -90,6 +110,12 @@ public class Block : Actor
 
     public override bool Move(Vector2 direction)
     {
+        if (chainedBlock && Vector2.Distance((Vector2)transform.position + direction, chainedBlock.transform.position) >= 1.5f) 
+        {
+            _animator.SetTrigger(WiggleAnimationTrigger);
+            CameraShaker.Instance.Shake(CameraShakeMode.Light);
+            return false;
+        }
         if (!CanMove(direction)) return false;
 
         // Raycast
@@ -105,6 +131,7 @@ public class Block : Actor
             if (interactable && interactable.OnInteracted(this)) return true;
         }
 
+        moveAudio.Play();
         return base.Move(direction);
     }
 }

@@ -28,7 +28,7 @@ public class EndController : MonoBehaviour
             // Update stats
             var data = SaveLoadController.Instance.LoadPerma();
             statsText.SetText(
-                $"Total stars collected: {data.levelRatings.Sum()}\nLevels 3-starred: {data.levelRatings.Count(rating => rating == 3)}");
+                $"Total stars collected: {data.levelRatings.Sum()}/{160 * 3}\nLevels 3-starred: {data.levelRatings.Count(rating => rating == 3)}");
 
             // Play effects
             CameraShaker.Instance.Shake(CameraShakeMode.Normal);

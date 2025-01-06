@@ -19,7 +19,8 @@ trader?
 
 math:
 //operations
-//square - square root
+//square
+//square root
 //factorial
 //comparison
 //absolute value

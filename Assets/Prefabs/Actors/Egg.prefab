@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7581116857083416099}
   - component: {fileID: 3602057974514150511}
   m_Layer: 0
-  m_Name: BlockEgg
+  m_Name: Egg
   m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

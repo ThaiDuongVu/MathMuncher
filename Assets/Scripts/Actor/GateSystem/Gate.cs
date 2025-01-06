@@ -5,8 +5,7 @@ public class Gate : MonoBehaviour
     [SerializeField] private bool openOnStart;
     [SerializeField] private AudioSource openAudio;
     private Animator _animator;
-    private static readonly int OpenAnimationTrigger = Animator.StringToHash("open");
-    private static readonly int CloseAnimationTrigger = Animator.StringToHash("close");
+    private static readonly int OpenAnimationBool = Animator.StringToHash("isOpened");
 
     #region Unity Events
 
@@ -24,14 +23,14 @@ public class Gate : MonoBehaviour
 
     public void Open()
     {
-        _animator.SetTrigger(OpenAnimationTrigger);
+        _animator.SetBool(OpenAnimationBool, true);
         openAudio.Play();
         Level.Instance.SendUIMessage("Gate opened");
     }
 
     public void Close()
     {
-        _animator.SetTrigger(CloseAnimationTrigger);
+        _animator.SetBool(OpenAnimationBool, false);
         openAudio.Play();
         Level.Instance.SendUIMessage("Gate closed");
     }
