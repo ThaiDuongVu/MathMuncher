@@ -70,7 +70,10 @@ MonoBehaviour:
     Sound effects by Little Robot
     Sound Factory.
 
-    Music by Avgvst.'
+    Music by Avgvst.
+
+
+    Thanks for playing!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7b4633f0186785f429bb3252023127db, type: 2}
   m_sharedMaterial: {fileID: -7485718936900704297, guid: 7b4633f0186785f429bb3252023127db, type: 2}

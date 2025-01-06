@@ -86,7 +86,7 @@ public class CursorController : MonoBehaviour
 
         // Move player(s) based on direction
         foreach (var player in _players)
-            player.Move(NormalizeDirection(_direction));
+            if (player) player.Move(NormalizeDirection(_direction));
     }
 
     #endregion
