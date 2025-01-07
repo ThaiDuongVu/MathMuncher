@@ -77,7 +77,7 @@ public class PassHole : Interactable
         _animator.SetTrigger(ActivateAnimationTrigger);
         IsActivated = true;
 
-        // Update block
+        // Destroy block
         actor.Teleport(transform.position);
         block.Shrink();
         Destroy(actor.gameObject, 0.5f);
