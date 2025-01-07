@@ -1,47 +1,15 @@
 interactable:
-//star
-//platform
-//teleporter
-//force button
-//switch
-//rat
-//chicken
-//player copy
-//gate - key
-//pin
-//gate - passcode
-//floor modifier: lava
-//bridge
-//turn platform
-//light - hidden items
-key colors?
 trader?
 
 math:
-//operations
-//square
-//square root
-//factorial
-//comparison
-//absolute value
-//modulo
-//negation
 sign
-pi
+pi?
 trigonometry?
 vector?
 
 skins:
-//orange cat
-//tuxedo cat
-//hello kitty
-//bunny
-//hamster
-//sphynx cat
-//cheshire cat
 squirrel
 grey cat
 
 other:
-end game fireworks
-operator explanation
+demo branch
