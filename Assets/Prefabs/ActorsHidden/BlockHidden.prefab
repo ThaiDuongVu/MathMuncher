@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlockHidden
       objectReference: {fileID: 0}
+    - target: {fileID: 1130881941166776464, guid: 91bcb0a9aaef3c1469ce43a0258a28ea, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5502158108647756610, guid: 91bcb0a9aaef3c1469ce43a0258a28ea, type: 3}
       propertyPath: m_MaskInteraction
       value: 1
