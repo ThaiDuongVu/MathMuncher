@@ -13,3 +13,27 @@ grey cat
 
 other:
 demo branch
+font license https://doublegum.gumroad.com/l/MeHRC
+
+store assets
+header capsule: 460 x 215
+small capsule: 231 x 87 - readable logo
+main capsule: 616 x 353
+vertical capsule: 374 x 448
+page background: 1438 x 810
+screenshots: at least 5
+https://partner.steamgames.com/doc/store/assets/standard
+
+library assets
+library capsule: 600 x 900
+library header: 460 x 215
+library hero: 3840 x 1240
+library logo: 1280 x 720
+https://partner.steamgames.com/doc/store/assets/libraryassets
+
+description
+short description
+trailer
+
+demo description
+demo short description
