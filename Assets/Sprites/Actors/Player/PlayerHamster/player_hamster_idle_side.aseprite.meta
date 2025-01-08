@@ -8,6 +8,7 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  importerVersion: 1
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
@@ -131,7 +132,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 42
+      y: 23
       width: 7
       height: 10
     spriteID: 6261ec30482ddae4087673fcf73aded6
@@ -142,10 +143,10 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 42}
+    uvTransform: {x: 4, y: 23}
   - name: player_idle_side_Frame_1
     originalName: 
-    pivot: {x: 0.5714286, y: -0.4}
+    pivot: {x: 0.5714286, y: -0.44444445}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -154,7 +155,7 @@ ScriptedImporter:
       x: 19
       y: 4
       width: 7
-      height: 10
+      height: 9
     spriteID: 932e795f40e38244e8e390e4294df150
     spriteBone: []
     spriteOutline: []
@@ -166,6 +167,27 @@ ScriptedImporter:
     uvTransform: {x: 19, y: 4}
   - name: player_idle_side_Frame_2
     originalName: 
+    pivot: {x: 0.5714286, y: -0.4}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 41
+      width: 7
+      height: 10
+    spriteID: 4def52f6cbe4771429ac883e57f9c304
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 41}
+  - name: player_idle_side_Frame_3
+    originalName: 
     pivot: {x: 0.5714286, y: -0.36363637}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,27 +198,6 @@ ScriptedImporter:
       y: 4
       width: 7
       height: 11
-    spriteID: 4def52f6cbe4771429ac883e57f9c304
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
-  - name: player_idle_side_Frame_3
-    originalName: 
-    pivot: {x: 0.5714286, y: -0.36363637}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 23
-      width: 7
-      height: 11
     spriteID: 05583d4c6b205914382678dd9012ca75
     spriteBone: []
     spriteOutline: []
@@ -205,11 +206,11 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 23}
+    uvTransform: {x: 4, y: 4}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 730492460
+    guid: 1895087580
     name: player_idle_side
     layerFlags: 0
     layerType: 0
@@ -231,7 +232,7 @@ ScriptedImporter:
         x: 4
         y: 4
         width: 7
-        height: 10
+        height: 9
       spriteId: 932e795f40e38244e8e390e4294df150
     - name: Frame_2
       frameIndex: 2
@@ -240,7 +241,7 @@ ScriptedImporter:
         x: 4
         y: 4
         width: 7
-        height: 11
+        height: 10
       spriteId: 4def52f6cbe4771429ac883e57f9c304
     - name: Frame_3
       frameIndex: 3
@@ -258,3 +259,4 @@ ScriptedImporter:
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 16, y: 16}
+  previousTextureSize: {x: 32, y: 64}
