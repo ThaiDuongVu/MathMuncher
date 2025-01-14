@@ -20,7 +20,7 @@ store assets
 //main capsule: 1232 x 706
 //vertical capsule: 374 x 448
 //page background: 1438 x 810
-screenshots: at least 5, 1920 x 1080
+//screenshots: at least 5, 1920 x 1080
 https://partner.steamgames.com/doc/store/assets/standard
 
 library assets
@@ -30,9 +30,21 @@ library assets
 //library logo: 1280 x 720
 https://partner.steamgames.com/doc/store/assets/libraryassets
 
-description
-short description
-trailer
+//description
+Math Muncher is a puzzle game where you push blocks to manipulate their values. In each level, the Math Muncher is hungry and demands blocks of a certain value. Keeping the Muncher fed and satisfied to advance to the next level and safely make your way back to civilization.
+
+Features:
+- Unique Challenges: Each level presents a fun and challenging obstacle that will tickle your brain.
+- Interactive Objects: Buttons, switches, teleporters, and more.
+- 60 Levels: Can you solve all of them?
+- Customization: Collect stars to unlock different skins and escape in style.
+
+Get your math brain going and feed the Math Muncher!
+
+//short description
+A relaxing block-pushing puzzle game where you perform mathematical operations and feed the hungry Math Muncher. 
+
+//trailer
 
 demo description
-demo short description
+demo short description 
