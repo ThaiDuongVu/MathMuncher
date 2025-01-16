@@ -122,8 +122,8 @@ public class SettingsController : MonoBehaviour
         // Apply fullscreen setting
         // 0: fullscreen
         // 1: windowed
-        var fullscreenValue = settingsSaveData.fullscreen;
-        fullscreenButton.SetMainText(fullscreenValue == 0 ? "Fullscreen" : "Windowed");
+        // var fullscreenValue = settingsSaveData.fullscreen;
+        // fullscreenButton.SetMainText(fullscreenValue == 0 ? "Fullscreen" : "Windowed");
 
         // Apply resolution setting
         // 0: 640x360
@@ -132,39 +132,39 @@ public class SettingsController : MonoBehaviour
         // 3: 1920x1080
         // 4: 2560x1440
         // 5: 3840x2160
-        var resolutionValue = settingsSaveData.resolution;
-        switch (resolutionValue)
-        {
-            case 0:
-                Screen.SetResolution(640, 360, fullscreenValue == 0);
-                resolutionButton.SetMainText("640 x 360");
-                break;
+        // var resolutionValue = settingsSaveData.resolution;
+        // switch (resolutionValue)
+        // {
+        //     case 0:
+        //         Screen.SetResolution(640, 360, fullscreenValue == 0);
+        //         resolutionButton.SetMainText("640 x 360");
+        //         break;
 
-            case 1:
-                Screen.SetResolution(1280, 720, fullscreenValue == 0);
-                resolutionButton.SetMainText("1280 x 720");
-                break;
+        //     case 1:
+        //         Screen.SetResolution(1280, 720, fullscreenValue == 0);
+        //         resolutionButton.SetMainText("1280 x 720");
+        //         break;
 
-            case 2:
-                Screen.SetResolution(1600, 900, fullscreenValue == 0);
-                resolutionButton.SetMainText("1600 x 900");
-                break;
+        //     case 2:
+        //         Screen.SetResolution(1600, 900, fullscreenValue == 0);
+        //         resolutionButton.SetMainText("1600 x 900");
+        //         break;
 
-            case 3:
-                Screen.SetResolution(1920, 1080, fullscreenValue == 0);
-                resolutionButton.SetMainText("1920 x 1080");
-                break;
+        //     case 3:
+        //         Screen.SetResolution(1920, 1080, fullscreenValue == 0);
+        //         resolutionButton.SetMainText("1920 x 1080");
+        //         break;
 
-            case 4:
-                Screen.SetResolution(2560, 1440, fullscreenValue == 0);
-                resolutionButton.SetMainText("2560 x 1440");
-                break;
+        //     case 4:
+        //         Screen.SetResolution(2560, 1440, fullscreenValue == 0);
+        //         resolutionButton.SetMainText("2560 x 1440");
+        //         break;
 
-            case 5:
-                Screen.SetResolution(3840, 2160, fullscreenValue == 0);
-                resolutionButton.SetMainText("3840 x 2160");
-                break;
-        }
+        //     case 5:
+        //         Screen.SetResolution(3840, 2160, fullscreenValue == 0);
+        //         resolutionButton.SetMainText("3840 x 2160");
+        //         break;
+        // }
 
         // Apply camera shake setting
         var cameraShakeValue = settingsSaveData.cameraShake;

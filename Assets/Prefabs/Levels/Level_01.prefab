@@ -262,7 +262,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9184176116090493051, guid: 0f2f0914cc963f346a37a2dd04a70393, type: 3}
       propertyPath: mnkTutorial
-      value: '[WASD] to move'
+      value: Touch and drag to move
       objectReference: {fileID: 0}
     - target: {fileID: 9184176116090493051, guid: 0f2f0914cc963f346a37a2dd04a70393, type: 3}
       propertyPath: gamepadTutorial

@@ -1,5 +1,8 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
+using UnityEngine.InputSystem.EnhancedTouch;
 
 public class CursorController : MonoBehaviour
 {
@@ -15,6 +18,7 @@ public class CursorController : MonoBehaviour
     private Vector2 _startPosition;
     private Vector2 _endPosition;
     private Vector2 _direction;
+    private Vector2 _touchPosition;
 
     private Camera _mainCamera;
     private Player[] _players;
@@ -26,9 +30,11 @@ public class CursorController : MonoBehaviour
     {
         _inputActions = new InputActions();
 
-        // Handle click input
-        _inputActions.Game.Click.performed += ClickOnPerformed;
-        _inputActions.Game.Click.canceled += ClickOnCanceled;
+        // Handle touch position
+        _inputActions.Mobile.TouchPosition.performed += (InputAction.CallbackContext context) => { _touchPosition = context.ReadValue<Vector2>(); };
+        // Handle touch input
+        _inputActions.Mobile.Touch.performed += TouchOnPerformed;
+        _inputActions.Mobile.Touch.canceled += TouchOnCanceled;
 
         _inputActions.Enable();
     }
@@ -53,7 +59,7 @@ public class CursorController : MonoBehaviour
     private void Update()
     {
         // Update move line
-        _endPosition = _mainCamera.ScreenToWorldPoint(Mouse.current.position.value);
+        _endPosition = _mainCamera.ScreenToWorldPoint(_touchPosition);
         _direction = (_endPosition - _startPosition).normalized;
         moveLine.SetPositions(new Vector3[] { _startPosition, _endPosition });
 
@@ -66,18 +72,25 @@ public class CursorController : MonoBehaviour
 
     #region Input Handlers
 
-    private void ClickOnPerformed(InputAction.CallbackContext context)
+    private void TouchOnPerformed(InputAction.CallbackContext context)
     {
         if (GameController.Instance && !GameController.Instance.IsInProgress) return;
+
+        StartCoroutine(StartMove());
+    }
+
+    private IEnumerator StartMove()
+    {
+        yield return new WaitForEndOfFrame();
 
         moveLine.gameObject.SetActive(true);
         arrow.gameObject.SetActive(true);
 
         // Set start position
-        _startPosition = _mainCamera.ScreenToWorldPoint(Mouse.current.position.value);
+        _startPosition = _mainCamera.ScreenToWorldPoint(_touchPosition);
     }
 
-    private void ClickOnCanceled(InputAction.CallbackContext context)
+    private void TouchOnCanceled(InputAction.CallbackContext context)
     {
         if (GameController.Instance && !GameController.Instance.IsInProgress) return;
 

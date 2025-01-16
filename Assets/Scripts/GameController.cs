@@ -85,7 +85,7 @@ public class GameController : MonoBehaviour
 
     #region Pause/Resume Methods
 
-    private void Pause()
+    public void Pause()
     {
         SetTimeScale(0f);
         pauseMenu.SetActive(true);

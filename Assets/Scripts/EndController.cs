@@ -20,7 +20,7 @@ public class EndController : MonoBehaviour
 
     private void Update()
     {
-        if (!_endMenuEnabled && player.transform.position.y > 5)
+        if (!_endMenuEnabled && player.transform.position.y > 10)
         {
             endMenu.SetActive(true);
             _endMenuEnabled = true;

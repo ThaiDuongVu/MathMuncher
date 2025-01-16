@@ -36,7 +36,7 @@ public class HomeController : MonoBehaviour
         _inputActions = new InputActions();
 
         // Handle any input
-        _inputActions.Game.Any.performed += AnyOnPerformed;
+        _inputActions.Mobile.Touch.performed += AnyOnPerformed;
 
         _inputActions.Enable();
     }
