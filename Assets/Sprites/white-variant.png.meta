@@ -360,7 +360,16 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      white-variant_0: 1823248227425930367
+      white-variant_1: -2353799448592784021
+      white-variant_2: -6110156397216164051
+      white-variant_3: 2310643053214238395
+      white-variant_4: -802898912168063230
+      white-variant_5: -2110554796900758224
+      white-variant_6: 6325488596868600572
+      white-variant_7: -8208424744243309277
+      white-variant_8: -6104515424802088058
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
