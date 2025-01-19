@@ -25,6 +25,7 @@ public class SimpleMenu : MonoBehaviour
     {
         _inputManager = new SimpleMenuInputManager();
         _inputManager.UI.Enter.performed += EnterOnPerformed;
+        _inputManager.UI.Direction.performed += DirectionOnPerformed;
         _inputManager.Enable();
 
         if (!_eventSystem.firstSelectedGameObject) StartCoroutine(SelectFirstButton());
@@ -63,6 +64,11 @@ public class SimpleMenu : MonoBehaviour
     {
         _eventSystem.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
         clickAudio.Play();
+    }
+
+    private void DirectionOnPerformed(InputAction.CallbackContext context)
+    {
+
     }
 
     #endregion
