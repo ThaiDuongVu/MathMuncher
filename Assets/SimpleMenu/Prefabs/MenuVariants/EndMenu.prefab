@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '"You got luckky,
+  m_text: '"You got lucky,
 
     don''t get ahead of yourself"'
   m_isRightToLeft: 0
