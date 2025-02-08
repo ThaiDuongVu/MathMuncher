@@ -4,10 +4,6 @@
 
 A relaxing block-pushing puzzle game where you do math and feed a hungry monster.
 
-<a href="https://store.steampowered.com/app/3450940/Math_Muncher/">
-    <img src="./steam.png" width=144 alt="Steam icon"/>
-</a>
-
 ## Description
 
 <img src="./Assets/Recordings/Trailer/gameplay.gif" alt="Gameplay"/>
@@ -22,6 +18,10 @@ Featuring:
 - **Customization:** Collect stars to unlock different skins and escape in style.
 
 Get your math brain in gear and feed the **Math Muncher**!
+
+<a href="https://store.steampowered.com/app/3450940/Math_Muncher/">
+    <img src="./steam.png" width=144 alt="Steam icon"/>
+</a>
 
 ## Screenshots
 
